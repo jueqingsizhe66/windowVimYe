@@ -19,9 +19,9 @@ Session.vim
 .netrwhist
 
 *.exe
-!tags.exe
+!ctags.exe
 !cscope.exe
-!./es/es.exe
+!es.exe
 # bundles installed should be ignored
 bundle
 *.swp
