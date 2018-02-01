@@ -9,7 +9,7 @@ Plug 'Shougo/neocomplcache'
 Plug 'garbas/vim-snipmate'
 Plug 'ervandew/supertab'
 "Plug 'honza/snipmate-snippets'
-Plug 'scrooloose/snipmate-snippets' 
+Plug 'scrooloose/snipmate-snippets'
 "python
 "Plug 'honza/vim-snippets'
 "Plug 'mattn/zencoding-vim'
@@ -33,7 +33,7 @@ Plug 'Lokaltog/vim-easymotion'
 "--------------
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
-Plug 'sjl/gundo.vim'
+"Plug 'sjl/gundo.vim'
 Plug 'godlygeek/tabular'
 Plug 'nathanaelkane/vim-indent-guides'
 
@@ -108,7 +108,7 @@ Plug 'kien/rainbow_parentheses.vim'
 "something wrong 5/6
 "Plug 'vim-scripts/fortran_codecomplete.vim'
 " fortran
-Plug 'xiexinyls/vim'
+"Plug 'xiexinyls/vim'
 
 "matlab
 Plug 'elmanuelito/vim-matlab-behave'
@@ -179,13 +179,13 @@ Plug 'chrisbra/csv.vim'
 Plug 'tacahiroy/ctrlp-funky'
 
 " For java
-Plug 'yuratomo/java-api-complete'
-Plug 'yuratomo/java-api-javax'
-Plug 'yuratomo/java-api-org'
-Plug 'yuratomo/java-api-sun'
-Plug 'yuratomo/java-api-servlet2.3'
+" Plug 'yuratomo/java-api-complete'
+" Plug 'yuratomo/java-api-javax'
+" Plug 'yuratomo/java-api-org'
+" Plug 'yuratomo/java-api-sun'
+" Plug 'yuratomo/java-api-servlet2.3'
 "Plug 'yuratomo/java-api-android'
-Plug 'yuratomo/java-api-junit'
+" Plug 'yuratomo/java-api-junit'
 
 "strength the NerdTree, multiTags with one NerdTree
 Plug 'jistr/vim-nerdtree-tabs'
@@ -218,7 +218,7 @@ Plug 'sgur/unite-everything'
 " \     'linux' : 'make',
 " \     'unix' : 'gmake',
 " \    },
-" \ }
+" \ }                      -
 "
 "
 "" abbre
@@ -242,7 +242,7 @@ Plug 'matze/vim-move'
 
 "" update the operation of f and F t and T
 Plug 'rhysd/clever-f.vim'
-
+                   -
 "" color to let you look better  set termguicolors
 Plug 'romainl/Apprentice'
 
@@ -293,7 +293,22 @@ Plug 'will133/vim-dirdiff'
 Plug 'vim-scripts/sketch.vim'
 Plug 'hrj/vim-DrawIt'
 
+"" Improve the nerd tree
+"Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'ryanoasis/nerd-fonts'  "it should be download,not bundle
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tpope/vim-fireplace'
+
+
+Plug 'vim-scripts/paredit.vim'
+
+"Plug 'https://github.com/dracula/vim'
+"Plug 'dracula/dracula-theme'
+
+Plug 'https://github.com/roosta/vim-srcery'
 call plug#end()
 
 
 filetype plugin indent on     " required!
+

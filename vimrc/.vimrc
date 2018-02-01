@@ -25,6 +25,7 @@ let g:user_emmet_install_global =0
 
 "for  Todo.txt
 let g:todo_root="D:\Todo"
+set list
 autocmd FileType html,css EmmetInstall
 "let g:user_emmet_settings = webapi#json#decode(join(readfile(expand('~/.snippets_custom.json')), "\n"))
 "let g:user_emmet_leader_key='<C-Z>,'
@@ -67,15 +68,24 @@ syntax on
 "--------
 " Vim UI
 "--------
-" color scheme
-set background=dark
 
+" syntax on
+" color dracula
+"
+"soloarized
+
+""You like it
+" color scheme
+" set background=dark
+" color solarized
+" let g:solarized_termcolors=256
+"
+"
+colorscheme srcery
 "color vividchalk  "the default setting  But Ichange it by zhaolaing
 "color distinguished
 "color monakai
 "color blackboard
-color solarized
-let g:solarized_termcolors=256
 "color fisa
 
 " highlight current line
@@ -353,6 +363,7 @@ let NERDTreeWinPos = "right"
 let NERDSpaceDelims=1
 " nmap <D-/> :NERDComToggleComment<cr>
 let NERDCompactSexyComs=1
+let NERDTreeShowHidden=1
 
 " ZenCoding
 let g:user_zen_expandabbr_key='<C-j>'
@@ -720,14 +731,14 @@ let g:LookupFile_AllowNewFiles = 0              "不允许创建不存在的文�
 if filereadable("./filenametags")                "设置tag文件的名字
 let g:LookupFile_TagExpr = '"./filenametags"'
 endif
-"映射LookupFile为,lk
+"映射LookupFile为,lk {{{1
 nmap <silent> <leader>lk :LUTags<cr>
 "映射LUBufs为,ll
 nmap <silent> <leader>ll :LUBufs<cr>
 "映射LUWalk为,lw
 nmap <silent> <leader>lw :LUWalk<cr>
 
-
+" }}}1
 "" create tags for lookupfile
 
 "chalk setting
@@ -953,6 +964,7 @@ let g:nb_categories = ['CHECK', 'CLASS', 'CODE', 'CONDITION', 'DEBUG', 'DEFINE',
 
 
 "" for wiki
+let g:vimwiki_list = [{ 'auto_toc': 1}]
 nmap <C-@> <Plug>VimwikiToggleListItem
 vmap <C-@> <Plug>VimwikiToggleListItem
 let g:vimwiki_folding='list'
@@ -983,8 +995,12 @@ hi VimwikiHeader3 guifg=#FFFF00
 hi VimwikiHeader4 guifg=#FF00FF  
 hi VimwikiHeader5 guifg=#00FFFF  
 hi VimwikiHeader6 guifg=#FFFFFF  
+"" vimwiki with guifont Droidsansmonofor
+let g:vimwiki_listsyms = '✗○◐●✓'
+"let g:vimwiki_listsyms = '.oOX' "the default value
 "" for vim-move
 let g:move_key_modifier = 'C'
+
 
 "" Apprentice
 set termguicolors
@@ -1018,21 +1034,23 @@ function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
-call NERDTreeHighlightFile('pl', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('java', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('wiki', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('f90', 'Red', 'none', 'red', '#151515')
-call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('properties', 'Magenta', 'none', '#ff00ff', '#151515')
-call NERDTreeHighlightFile('m', 'green', 'none', '#ff00ff', '#151515')
-
+" call NERDTreeHighlightFile('pl', 'green', 'none', 'green', '#151515')
+" call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+" call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+" call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+" call NERDTreeHighlightFile('java', 'yellow', 'none', 'yellow', '#151515')
+" call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+" call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+" call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+" call NERDTreeHighlightFile('wiki', 'cyan', 'none', 'cyan', '#151515')
+" call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+" call NERDTreeHighlightFile('f90', 'Red', 'none', 'red', '#151515')
+" call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+" call NERDTreeHighlightFile('properties', 'Magenta', 'none', '#ff00ff', '#151515')
+" call NERDTreeHighlightFile('m', 'green', 'none', '#ff00ff', '#151515')
+"
+"let g:NERDTreeDirArrowExpandable = '>'
+"let g:NERDTreeDirArrowCollapsible = 'v'
 "Autoopen NERDTree on GVim / MacVim startup
 "let g:nerdtree_tabs_open_on_console_startup=1
 nnoremap g<LocalLeader> :call setline(line('.'),substitute(getline('.'),'\\','\/','g'))<CR>
@@ -1178,3 +1196,112 @@ let g:mwDefaultHighlightingPalette = 'extended'
 "If you like the additional colors, but don't need that many of them, restrict
 "their number via: >
 "let g:mwDefaultHighlightingNum = 9
+"
+"For gitnerd tree which imporve the scroose neredturee
+" let g:NERDTreeIndicatorMapCustom = {
+"     \ "Modified"  : "*",
+"     \ "Staged"    : "+",
+"     \ "Untracked" : "#",
+"     \ "Renamed"   : ">",
+"     \ "Unmerged"  : "=",
+"     \ "Deleted"   : "X",
+"     \ "Dirty"     : "x",
+"     \ "Clean"     : "o",
+"     \ 'Ignored'   : ')',
+"     \ "Unknown"   : "?"
+"     \ }
+" let g:NERDTreeShowIgnoredStatus = 1
+" let g:NERDTreeIndicatorMapCustom = {
+"     \ "Modified"  : "✹",
+"     \ "Staged"    : "✚",
+"     \ "Untracked" : "✭",
+"     \ "Renamed"   : "➜",
+"     \ "Unmerged"  : "═",
+"     \ "Deleted"   : "✖",
+"     \ "Dirty"     : "✗",
+"     \ "Clean"     : "✔︎",
+"     \ 'Ignored'   : '☒',
+"     \ "Unknown"   : "?"
+"     \ }
+"
+"" nerd fonts
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:webdevicons_gui_glyph_fix = 1
+"set guifont=DroidSansMonoFor\ Nerd\ Font\ Mono:h10.5
+"set guifont=Ubuntu\ NF
+set guifont=Hack\ NF:h11  " good!
+"set guifont=Knack\ NF:h11  " bad
+"set guifont=Iosevka\ NF "bad!
+"set guifont=Hermit\ NF
+"set guifont=icomoon
+"set guifont=fontAwesome
+"set guifont=DroidSansMonoforPowerline\ NF:h12
+"set guifont=DroidSansMonoforPowerline\ NF:h12
+set encoding=utf-8  " required if using https://github.com/bling/vim-airlinelet g:airline_powerline_fonts=1
+
+
+" loading the plugin 
+let g:webdevicons_enable = 1
+" adding the flags to NERDTree 
+let g:webdevicons_enable_nerdtree = 1
+" adding the custom source to unite 
+let g:webdevicons_enable_unite = 1
+" adding the column to vimfiler 
+let g:webdevicons_enable_vimfiler = 1
+" adding to vim-airline's tabline 
+let g:webdevicons_enable_airline_tabline = 1
+" adding to vim-airline's statusline 
+let g:webdevicons_enable_airline_statusline = 1
+" ctrlp glyphs
+let g:webdevicons_enable_ctrlp = 1
+" whether or not to show the nerdtree brackets around flags 
+let g:webdevicons_conceal_nerdtree_brackets = 1
+
+""vim-nerdtree-syntax-hightlight
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+
+" you can add these colors to your .vimrc to help customizing
+let s:brown = "905532"
+let s:aqua =  "3AFFDB"
+let s:blue = "689FB6"
+let s:darkBlue = "44788E"
+let s:purple = "834F79"
+let s:lightPurple = "834F79"
+let s:red = "AE403F"
+let s:beige = "F5C06F"
+let s:yellow = "F09F17"
+let s:orange = "D4843E"
+let s:darkOrange = "F16529"
+let s:pink = "CB6F6F"
+let s:salmon = "EE6E73"
+let s:green = "8FAA54"
+let s:lightGreen = "31B53E"
+let s:white = "FFFFFF"
+let s:rspec_red = 'FE405F'
+let s:git_orange = 'F54D27'
+
+let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreeExtensionHighlightColor['tif'] = s:blue " sets the color of css files to blue
+let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreeExtensionHighlightColor['m'] = s:beige " sets the color of css files to blue
+
+let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange " sets the color for .gitignore files
+
+let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreePatternMatchHighlightColor['.*.scm$'] = s:rspec_red " sets the color for files ending with _spec.rb
+
+
+"cd C:\Users\YeZhao\vimwiki\diary 
+
+map z/ <Plug>(incsearch-easymotion-/)
+map z? <Plug>(incsearch-easymotion-?)
+map zg/ <Plug>(incsearch-easymotion-stay)
+
+
+iabbrev xdate <c-r>=strftime("%Y-%m-%d")<cr>
