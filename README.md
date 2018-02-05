@@ -1,18 +1,17 @@
 # 主要目的
-
-好玩的功能
+快速编辑文件
 
 [learn-vim-progressively][1]
 [vim-as-IDE][2]
 
 
-
+很不好意思哈，bundle/文件夹没有上传，如果您使用了只好忽略警告,然后`Plug Install`一下即可
 
 记得更改ag.exe,perl.exe,es.exe,git.exe 哈，在.vimrc的第943行，搜索一下即可
+并且把.vim目录下的ag.exe添加到path路径下，这样你就可以愉快的`,a`,命令行显示`:Ack everything`
 
 
-记得把.vim目录下的ag.exe添加到path路径下，这样你就可以愉快的,a了`:Ack everything`
-
+## search context in files with ag, let you fly
 
 十分有用的功能,q(查找光标下的单词) 空格斜杠查找项目中的单词
 
@@ -24,7 +23,7 @@ nnoremap <space>/ :Ag
 
 ```
 
-
+## search file in project directory with unite file_rec, let you fly too
 Stackoverflow , author of Shoudo
 
 without vimproc(for async ,can be used in linux, had better not in windows)
@@ -35,8 +34,12 @@ In Windows, you should not use file_rec/async source. It is too slow and not eas
 所以你现在就可以在项目文件夹使用<Space> <space>来打开搜索文件夹目录搜索文件，可快可爽的感觉。
 
 
+## fugitive Gdiff
 
+wow, good, let you what is different with the latest version!!
 
+Gread, let you reset the changes from the latest commit version(东西没有了额！！)
+Gwrite, stash what the changes.(暂存起来)
 
 
 
