@@ -13,7 +13,7 @@
 并且把.vim目录下的ag.exe添加到path路径下，这样你就可以愉快的`,a`,命令行显示`:Ack everything`
 ```
 
-## <leader>q: search context in files with ag, let you fly
+## \<leader\>q: search context in files with ag, let you fly
 
 十分有用的功能,q(查找光标下的单词) 空格斜杠查找项目中的单词
 
@@ -25,7 +25,7 @@ nnoremap <space>/ :Ag
 
 ```
 
-## <space><space>: search file in project directory with unite file_rec, let you fly too
+## \<space\>\<space\>: search file in project directory with unite file_rec, let you fly too
 Stackoverflow , author of Shoudo
 
 without vimproc(for async ,can be used in linux, had better not in windows)
@@ -33,7 +33,7 @@ without vimproc(for async ,can be used in linux, had better not in windows)
 In Windows, you should not use file_rec/async source. It is too slow and not easy to use. You should use file_rec source instead.
 ```
 
-所以你现在就可以在项目文件夹使用<Space> <space>来打开搜索文件夹目录搜索文件，可快可爽的感觉。
+所以你现在就可以在项目文件夹使用\<Space\> \<space\>来打开搜索文件夹目录搜索文件，可快可爽的感觉。
 
 
 ## :Gdiff : fugitive Gdiff eye your difference of files
