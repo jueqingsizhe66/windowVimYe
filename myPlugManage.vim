@@ -206,6 +206,7 @@ Plug 'vim-scripts/mru.vim'
 
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
+"Plug 'Shougo/vimproc.vim'
 "sources for unite
 Plug 'Shougo/unite-outline'
 Plug 'Shougo/neomru.vim'
@@ -307,6 +308,11 @@ Plug 'vim-scripts/paredit.vim'
 "Plug 'dracula/dracula-theme'
 
 Plug 'https://github.com/roosta/vim-srcery'
+
+
+Plug 'bronson/vim-trailing-whitespace'
+
+Plug 'rking/ag.vim'
 call plug#end()
 
 

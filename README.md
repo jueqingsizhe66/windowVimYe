@@ -1,3 +1,60 @@
+# 主要目的
+
+好玩的功能
+
+[learn-vim-progressively][1]
+[vim-as-IDE][2]
+
+
+
+
+记得更改ag.exe,perl.exe,es.exe,git.exe 哈，在.vimrc的第943行，搜索一下即可
+
+
+记得把.vim目录下的ag.exe添加到path路径下，这样你就可以愉快的,a了`:Ack everything`
+
+
+十分有用的功能,q(查找光标下的单词) 空格斜杠查找项目中的单词
+
+```
+" --- type  ,q to search the word in all files in the current dir
+nmap <leader>q :Ag <c-r>=expand("<cword>")<cr><cr>
+nnoremap <space>/ :Ag
+
+
+```
+
+
+Stackoverflow , author of Shoudo
+
+without vimproc(for async ,can be used in linux, had better not in windows)
+```
+In Windows, you should not use file_rec/async source. It is too slow and not easy to use. You should use file_rec source instead.
+```
+
+所以你现在就可以在项目文件夹使用<Space> <space>来打开搜索文件夹目录搜索文件，可快可爽的感觉。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Maple's Vim config
 ==================
 blue
@@ -252,3 +309,7 @@ Other configurations are also well organized in vimrc.
 * Compeletions are not well supported for statically typed languages(c/c++)
 * Snippets are not shown in completions popups
 * May has some conflicts with GVIM
+
+
+[1]:http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/
+[2]:http://yannesposito.com/Scratch/en/blog/Vim-as-IDE/
