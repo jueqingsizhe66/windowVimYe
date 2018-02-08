@@ -23,7 +23,6 @@ Session.vim
 !cscope.exe
 !es.exe
 # bundles installed should be ignored
-bundle
 *.swp
 *.swo
 

@@ -4,9 +4,7 @@
 [learn-vim-progressively][1]
 [vim-as-IDE][2]
 
-<font color="red">sorry for bundle/文件夹没有上传</font>
 
-如果您依然想用，那么只好忽略警告,然后`Plug Install`一下即可
 
 ```
 记得更改ag.exe,perl.exe,es.exe,git.exe 哈，在.vimrc的第943行，搜索一下即可
