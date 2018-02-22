@@ -183,9 +183,12 @@ ag 'hx' /www/t086.com
 2. 需要记录知识，概念，打开calendar(我已经在.vimrc)配置好，所以可以直接使用`,ca`打开calendar，调到当前日期写日记,当然直接打开当前日子`,wt`
 然后有可能使用`xdate`产生日期，很有意思的是enter一下即可产生链接(vimwiki做得不错），然后还可以使用backspace回到`,wi` diary总管理界面，可不舒爽
 的一个编辑过程，两个键方便写来读去，很是方便 ,进一步参考[what vim teatches you][11]
-3. 双空格进行搜索【unite】，`,a`进行查找【unite+ag】，`,q`查找光标下单词【unite+ag】，使用`F2`打开ctrlspace文件管理器，或者使用`,f`打开当前文件夹列表【unite】(最常用，也方便)，事先会在NerdTree找到Bookmark，然后切换到那个目录下，如果想要提交到github也方便使用`:shell`或者使用`:GitStatus`进行事先查看
+3. 双空格进行搜索【unite】，`,a`进行查找【unite+ag】，`,q`查找光标下单词【unite+ag】，使用`F2`打开ctrlspace文件管理器(h:Home(Buffer mode) l:Lists(tag mode) o:Open(File mode)  w:Workspace(space mode) b:Bookmark(bookmark mode)   当在buffer mode下使用大写的A添加当前目录到bookmark )，或者使用`,f`打开当前文件夹列表【unite】(最常用，也方便)，事先会在NerdTree找到Bookmark，然后切换到那个目录下，如果想要提交到github也方便使用`:shell`或者使用`:GitStatus`进行事先查看
 4. 会使用vim-text-obj,然后使用vim-expand-region的+/-来增大选择区域。
 5. 每天都在学习`:h ctrlspace` ,`:h vimwiki`, `:h vim-easy-object`,`:h nerdtree` etc
+6. 当觉得当前窗口过小`:res 10` 增加到10行（对于多窗口模式下有用）
+7. 在观看代码时候，习惯性的打开TagBar, 事先会进行`ctags -R` 然后`ag -l>cscope.files` ,最后在`set path=f:/cygwin/bin  ; cscope -bq`生成cscope.out
+8. 
 
 ## 增加vim-expand-selection插件
 
