@@ -315,7 +315,8 @@ let g:tagbar_type_markdown = {
 " 2014-5-4x xintianjia 
 
 if has("cscope")
-   set csprg="D:\Program Files (x86)\Vim\vim80\cscope"              "指定用来执行 cscope 的命令
+   "  set csprg="F:\cygwin\bin\cscope.exe"              "指定用来执行 cscope 的命令
+     set csprg=cscope              "指定用来执行 cscope 的命令
    set csto=1                             "先搜索tags标签文件，再搜索cscope数据库
    set cst                                "使用|:cstag|(:cs find g)，而不是缺省的:tag
    set nocsverb                           "不显示添加数据库是否成功
@@ -342,7 +343,7 @@ endif
     map <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
     " f: Find this file
     map <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
-    " i: Find files #including this file
+    "" i: Find files #including this file
     map <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
     map <leader>l :call ToggleLocationList()<CR>
 
@@ -416,7 +417,9 @@ nnoremap <leader>a :Ack!<SPACE>
 vmap <C-c> "+y    
 nmap <C-v> "+p    
 "nmap <C-a> gg0vG$
-
+if executable('ag')
+    let g:ackprg='ag --vimgrep'
+endif
 
 nnoremap <leader>v V`]
 
@@ -935,23 +938,23 @@ let g:unite_source_everything_limit = 100
 let g:unite_source_everything_full_path_search = 1
 let g:unite_source_everything_posix_regexp_search = 1
 let g:unite_source_everything_async_minimum_length = 3
-let g:unite_source_everything_cmd_path = 'C:\\Users\\YeZhao\\.vim\\es\\es.exe'
+let g:unite_source_everything_cmd_path = $HOME.'\\.vim\\es\\es.exe'
 
 
 
 set makeprg=perl\ %<.pl
-let g:Perl_Executable='D:\Perl\perl\bin\perl.exe'
+let g:Perl_Executable='C:\Strawberry\perl\bin'
 
 "let g:Matlab_GlbTemplateFile='C:/Users/YeZhao/.vim/vim-plugins/matlab-support/templates/Templates'
 let g:Matlab_GlbTemplateFile=$HOME.'/vim-plugins/matlab-support/templates/Templates'
 let s:Matlab_LclTemplateFile=$HOME.'/vim-plugins/matlab-support/templates/Templates'
-let g:Matlab_MlintExecutable = 'D:/Program Files/MATLAB/R2017a/bin/win64/mlint.exe'
+let g:Matlab_MlintExecutable = 'C://Program Files//MATLAB//R2017a//bin//win64//mlint.exe'
 
-let g:Git_Executable = 'D:\Program Files\Git\bin\git.exe'
+let g:Git_Executable = 'G:\JAVA\Git\bin\git.exe'
 "let g:Git_Executable = 'gitk'
-let g:Git_GitKExecutable = 'D:\Program Files\Git\cmd\gitk.exe'
-let g:Git_GitKScript     = 'D:\Program Files\Git\cmd\gitk'
-let g:Git_GitBashExecutable= 'D:\Program Files\Git\bin\sh.exe'
+let g:Git_GitKExecutable = 'G:\JAVA\Git\cmd\gitk.exe'
+let g:Git_GitKScript     = 'G:\JAVA\Git\cmd\gitk'
+let g:Git_GitBashExecutable= 'G:\JAVA\Git\bin\sh.exe'
 let g:Git_Executable = 'git'
 "let g:Git_BinPath='D:\Program Files\Git\bin\'
 
@@ -1007,11 +1010,13 @@ set termguicolors
 
 "for easy align 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
+"xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+"nmap ga <Plug>(EasyAlign)
 "let g:syntastic_enable_matlab_checker = 0
+" Easy align interactive
+vnoremap <silent> <Enter> :EasyAlign<cr>
 "quickfix导入本地语言出错
 function QfMakeConv()
    let qflist = getqflist()
@@ -1086,6 +1091,12 @@ noremap <silent><expr> /  incsearch#go(<SID>config_easyfuzzymotion())
 noremap <silent><expr> g/ incsearch#go(<SID>config_easyfuzzymotion({'is_stay': 1}))
 noremap <silent><expr> ?  incsearch#go(<SID>config_easyfuzzymotion({'command': '?'}))
 
+autocmd VimEnter *
+      \  if !argc()
+      \ |   Startify
+      \ |   NERDTree
+      \ |   wincmd w
+      \ | endif
 "at the startify ,when opening a file or bookmark, change to its directory
 let g:startify_change_to_dir = 1
 
@@ -1104,7 +1115,7 @@ let g:startify_list_order = [
         \ 'commands',
         \ ]
 
-let g:startify_bookmarks = [ {'c': 'D:\Program Files (x86)\Vim\.vimrc'}, {'m': '~/.vim/myPlugManage.vim'}, 'D:\Todo\todo.txt_cli-2.9\todo.txt','https://github.com/kana/vim-textobj-user/wiki']
+let g:startify_bookmarks = [ {'c': 'C:\Program Files (x86)\Vim\.vimrc'}, {'m': '~/.vim/myPlugManage.vim'}, 'D:\Todo\todo.txt_cli-2.9\todo.txt','https://github.com/kana/vim-textobj-user/wiki']
 let g:startify_commands = [
     \ ':help reference',
     \ ['Vim Reference', 'h ref'],
@@ -1305,3 +1316,26 @@ map zg/ <Plug>(incsearch-easymotion-stay)
 
 
 iabbrev xdate <c-r>=strftime("%Y-%m-%d")<cr>
+
+if (exists('+colorcolumn'))
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=9
+endif
+
+"let g:vimproc_dll_path=$VIMRUNTIME."/vimproc_win64.dll"
+"let g:vimproc#dll_path="C:\\Users\\yzl\\.vim\\vimproc_win64.dll"
+"" for vimproc 
+let g:unite_source_history_yank_enable = 1
+try
+  let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
+  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+catch
+endtry
+" search a file in the filetree
+nnoremap <space><space> :split<cr> :<C-u>Unite -start-insert file_rec<cr>
+" reset not it is <C-l> normally
+:nnoremap <space>r <Plug>(unite_restart)
+
+" --- type  ,q to search the word in all files in the current dir
+nmap <leader>q :Ag <c-r>=expand("<cword>")<cr><cr>
+nnoremap <space>/ :Ag

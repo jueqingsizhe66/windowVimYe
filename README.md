@@ -4,7 +4,9 @@
 [learn-vim-progressively][1]
 [vim-as-IDE][2]
 
+<font color="red">sorry for bundle/文件夹没有上传</font>
 
+如果您依然想用，那么只好忽略警告,然后`Plug Install`一下即可
 
 ```
 记得更改ag.exe,perl.exe,es.exe,git.exe 哈，在.vimrc的第943行，搜索一下即可
@@ -24,12 +26,14 @@ nnoremap <space>/ :Ag
 ```
 
 ## \<space\>\<space\>: search file in project directory with unite file_rec, let you fly too
-Stackoverflow , author of Shoudo
+Stackoverflow , author of Shoudo(去查看[vim-as-IDE][2])
 
 without vimproc(for async ,can be used in linux, had better not in windows)
 ```
 In Windows, you should not use file_rec/async source. It is too slow and not easy to use. You should use file_rec source instead.
 ```
+
+注意在windows使用起来最好使用[vimproc.dll][7]放在c:/windows/system32/底下即可.
 
 所以你现在就可以在项目文件夹使用\<Space\> \<space\>来打开搜索文件夹目录搜索文件，可快可爽的感觉。
 
@@ -43,11 +47,113 @@ Gwrite, stash what the changes.(暂存起来)
 
 
 
+## vim-tags
+
+[blog: vim and ctags][3]
+
+[zsw/vim-tags][4]
+
+```
+:TagsGenerate
+
+This command will generate one or more tags files but only if the main tags file exists. The presence of that file acts as an indicator actually. By the main tags file I mean the "tags" file collecting tags from all files and subdirectories of the project root directory.
+```
+
+[ctags.exe][5](注意emacs底下的ctags.exe无法使用-R，一定得是 [exuberant-ctags][8]
+
+如果当前文件夹就是项目文件夹: `ctags -R .`  ([ctags源代码][6])
 
 
+```
+The most significant one is that Universal-ctags doesn't load ~/.ctags and ./.ctags at starting up time. Instead, it loads ~/.ctags.d/*.ctags and ./.ctags.d/*.ctags
+```
 
 
+## vim-cscope
 
+
+[cscope.exe][10] 得配套gnu的sort.exe否则报如下错误
+
+```
+G:\IntellijHome\hutool>cscope -Rbq
+cscope: -q option mismatch between command line and old symbol database
+
+sort: cannot read: /tmp/cscope.16808/cscope.1: No such file or directory
+cscope: cannot create inverted index; ignoring -q option
+cscope: removed files ncscope.in.out and ncscope.po.out
+```
+
+
+[解决办法][9]
+```
+D:\Temp> type cs.bat
+@echo off
+set path=f:\cygwin\bin;
+cscope -Rbkq
+```
+
+
+问题2：
+
+```
+出现E623 无法生成cscope进程”
+```
+
+解决办法:
+
+```
+在命令行窗口下可以直接用cscope命令了吗？用cscope -h试试，看能不能执行成功
+如果已经可以，你所csprg的名字(在.vimrc中设置)设置成下面的试试：
+set csprg=cscope
+```
+
+
+使用方法：
+
+1. 使用`ag -l > cscope.files` 生成该文件，（默认cscope只处理*.c *.lex *.yal文件，不处理*.java *.c++等），所以需要手动搜索一下
+2. 使用`cscope -bq` 生成索引文件
+3. 打开vim, 定位到cscope.out 所在目录，使用`cscope add cscope.out`即可或者`cscope add .`
+4. 现在既可以查找数据了 ，使用`,fs`查找光标下单词
+
+
+.vimrc 设置
+```
+
+if has("cscope")
+   "  set csprg="F:\cygwin\bin\cscope.exe"              "指定用来执行 cscope 的命令
+     set csprg=cscope              "指定用来执行 cscope 的命令
+   set csto=1                             "先搜索tags标签文件，再搜索cscope数据库
+   set cst                                "使用|:cstag|(:cs find g)，而不是缺省的:tag
+   set nocsverb                           "不显示添加数据库是否成功
+   " add any database in current directory
+   if filereadable("cscope.out")
+      cs add cscope.out                   "添加cscope数据库
+   endif
+   set csverb                             "显示添加成功与否
+endif
+"cscope"
+   " in case your cscope execute is not in system path.
+    " let g:cscope_cmd = 'D:/tools/vim/cscope.exe'
+    " s: Find this C symbol
+    map <leader>fs :call CscopeFind('s', expand('<cword>'))<CR>
+    " g: Find this definition
+    map <leader>fg :call CscopeFind('g', expand('<cword>'))<CR>
+    " d: Find functions called by this function
+    map <leader>fd :call CscopeFind('d', expand('<cword>'))<CR>
+    " c: Find functions calling this function
+    map <leader>fc :call CscopeFind('c', expand('<cword>'))<CR>
+    " t: Find this text string
+    map <leader>ft :call CscopeFind('t', expand('<cword>'))<CR>
+    " e: Find this egrep pattern
+    map <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
+    " f: Find this file
+    map <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
+    "" i: Find files #including this file
+    map <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
+    map <leader>l :call ToggleLocationList()<CR>
+
+
+```
 
 
 <hr/>
@@ -252,7 +358,7 @@ YAML         | js-yaml       | `npm install -g js-yaml`
    - racket
    - clojure
    - scale
-  
+ 
 
 ## Themes
 
@@ -323,3 +429,11 @@ Other configurations are also well organized in vimrc.
 
 [1]:http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/
 [2]:http://yannesposito.com/Scratch/en/blog/Vim-as-IDE/
+[3]:https://andrew.stwrt.ca/posts/vim-ctags/
+[4]:https://github.com/szw/vim-tags
+[5]:https://github.com/universal-ctags/ctags-win32/releases
+[6]:https://github.com/universal-ctags/ctags
+[7]:https://github.com/Shougo/vimproc.vim/releases
+[8]:http://blog.csdn.net/augusdi/article/details/39974259
+[9]:https://blog.easwy.com/archives/cscope_sort_option_on_windows/ 
+[10]:https://blog.easwy.com/archives/advanced-vim-skills-cscope/ 
