@@ -111,7 +111,7 @@ set csprg=cscope
 使用方法：
 
 1. 使用`ag -l > cscope.files` 生成该文件，（默认cscope只处理*.c *.lex *.yal文件，不处理*.java *.c++等），所以需要手动搜索一下
-2. 使用`cscope -bq` 生成索引文件
+2. 使用`set path=f:\cygwin\bin;cscope -bq` 生成索引文件
 3. 打开vim, 定位到cscope.out 所在目录，使用`cscope add cscope.out`即可或者`cscope add .`
 4. 现在既可以查找数据了 ，使用`,fs`查找光标下单词
 
