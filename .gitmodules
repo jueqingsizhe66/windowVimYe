@@ -1,0 +1,3 @@
+[submodule "bundle/vim-expand-region"]
+	path = bundle/vim-expand-region
+	url = https://git::@github.com/terryma/vim-expand-region.git

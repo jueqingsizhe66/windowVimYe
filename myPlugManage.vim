@@ -151,6 +151,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 "multicursor
 Plug 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-expand-region'
 "python snippts~important
 "Plug 'SirVer/ultisnips'
 "racket
@@ -186,6 +187,7 @@ Plug 'tacahiroy/ctrlp-funky'
 " Plug 'yuratomo/java-api-servlet2.3'
 "Plug 'yuratomo/java-api-android'
 " Plug 'yuratomo/java-api-junit'
+"Plug 'artur-shaik/vim-javacomplete2'
 
 "strength the NerdTree, multiTags with one NerdTree
 Plug 'jistr/vim-nerdtree-tabs'

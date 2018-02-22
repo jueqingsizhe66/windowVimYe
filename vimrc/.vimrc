@@ -838,6 +838,10 @@ let g:javaapi#delay_dirs = [
 set tags+=./tags
 
 "Ctrl-Space
+if executable("ag")
+    let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+endif
+
 if has("gui_running")
     " Settings for MacVim and Inconsolata font
     let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }

@@ -25,6 +25,14 @@ nnoremap <space>/ :Ag
 
 ```
 
+同时也改进了ctrlspace的设置
+
+```
+if executable("ag")
+        let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+endif
+```
+
 ## \<space\>\<space\>: search file in project directory with unite file_rec, let you fly too
 Stackoverflow , author of Shoudo(去查看[vim-as-IDE][2])
 
@@ -113,7 +121,8 @@ set csprg=cscope
 1. 使用`ag -l > cscope.files` 生成该文件，（默认cscope只处理*.c *.lex *.yal文件，不处理*.java *.c++等），所以需要手动搜索一下
 2. 使用`set path=f:\cygwin\bin;cscope -bq` 生成索引文件
 3. 打开vim, 定位到cscope.out 所在目录，使用`cscope add cscope.out`即可或者`cscope add .`
-4. 现在既可以查找数据了 ，使用`,fs`查找光标下单词
+4. 现在既可以查找数据了 ，使用`,fs`查找光标下符号(`,fg`特指光标下函数的定义), 使用`,fc`查看谁调用了光标下的函数,比较特殊的是`,fd`查找光标下
+函数中所有的函数们
 
 
 .vimrc 设置
@@ -166,6 +175,22 @@ ag 'hx' /www/t086.com
 --php 只搜索php文件
 --ignore-dir 忽略目录
 ```
+
+
+## 当前vim工作流程
+
+1. 打开文件，编写(涉及到git提交问题，一般选择emacs的magit形式，进行工作，就比如现在我正在emacs编写)
+2. 需要记录知识，概念，打开calendar(我已经在.vimrc)配置好，所以可以直接使用`,ca`打开calendar，调到当前日期写日记,当然直接打开当前日子`,wt`
+然后有可能使用`xdate`产生日期，很有意思的是enter一下即可产生链接(vimwiki做得不错），然后还可以使用backspace回到`,wi` diary总管理界面，可不舒爽
+的一个编辑过程，两个键方便写来读去，很是方便 ,进一步参考[what vim teatches you][11]
+3. 双空格进行搜索【unite】，`,a`进行查找【unite+ag】，`,q`查找光标下单词【unite+ag】，使用`F2`打开ctrlspace文件管理器，或者使用`,f`打开当前文件夹列表【unite】(最常用，也方便)，事先会在NerdTree找到Bookmark，然后切换到那个目录下，如果想要提交到github也方便使用`:shell`或者使用`:GitStatus`进行事先查看
+4. 会使用vim-text-obj,然后使用vim-expand-region的+/-来增大选择区域。
+5. 每天都在学习`:h ctrlspace` ,`:h vimwiki`, `:h vim-easy-object`,`:h nerdtree` etc
+
+## 增加vim-expand-selection插件
+
+
+[vim-expand-region][12] 按照默认进行设置，使用+/-进行增大和减小选择区域
 
 <hr/>
 <hr/>
@@ -448,3 +473,5 @@ Other configurations are also well organized in vimrc.
 [8]:http://blog.csdn.net/augusdi/article/details/39974259
 [9]:https://blog.easwy.com/archives/cscope_sort_option_on_windows/ 
 [10]:https://blog.easwy.com/archives/advanced-vim-skills-cscope/ 
+[11]:http://jueqingsizhe66.github.io/blog/2017/08/13/what-vim-teaches-you/ 
+[12]:https://github.com/terryma/vim-expand-region 
