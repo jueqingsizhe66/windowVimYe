@@ -280,6 +280,8 @@ Plug 'AndrewRadev/splitjoin.vim'
 " another kana object
 
 Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-entire'
 "" va` vi`
 ""Plug 'fvictorio/vim-textobj-backticks'
 Plug 'jceb/vim-textobj-uri'

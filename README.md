@@ -215,6 +215,54 @@ so, when click F2 in the vim, then o can view file lists, l can view many opened
 [vim-expand-region][12] 按照默认进行设置，使用+/-进行增大和减小选择区域
 
 
+[vim-textobj-user][13] 自定义新的region
+
+```
+call textobj#user#plugin('datetime', {
+\   'date': {
+\     'pattern': '\<\d\d\d\d-\d\d-\d\d\>',
+\     'select': ['ad', 'id'],
+\   },
+\   'time': {
+\     'pattern': '\<\d\d:\d\d:\d\d\>',
+\     'select': ['at', 'it'],
+\   },
+\ })
+
+
+call textobj#user#plugin('line', {
+\   '-': {
+\     'select-a-function': 'CurrentLineA',
+\     'select-a': 'al',
+\     'select-i-function': 'CurrentLineI',
+\     'select-i': 'il',
+\   },
+\ })
+
+function! CurrentLineA()
+  normal! 0
+  let head_pos = getpos('.')
+  normal! $
+  let tail_pos = getpos('.')
+  return ['v', head_pos, tail_pos]
+endfunction
+
+function! CurrentLineI()
+  normal! ^
+  let head_pos = getpos('.')
+  normal! g_
+  let tail_pos = getpos('.')
+  let non_blank_char_exists_p = getline('.')[head_pos[2] - 1] !~# '\s'
+  return
+  \ non_blank_char_exists_p
+  \ ? ['v', head_pos, tail_pos]
+  \ : 0
+endfunction
+```
+
+同时又安装了[vim-textobj-line][14] 所以支持`val vil`
+还有就是在使用完`vaw或者viw`之后，还可以使用`)`到句尾，使用`(`跳到句首
+
 ## vimwiki的tagbar集成只支持python2.7版本
 
 装3.6版本的python不兼容,已在目录下打包了python，只需要解压添加到路径即可
@@ -516,3 +564,5 @@ Other configurations are also well organized in vimrc.
 [10]:https://blog.easwy.com/archives/advanced-vim-skills-cscope/ 
 [11]:http://jueqingsizhe66.github.io/blog/2017/08/13/what-vim-teaches-you/ 
 [12]:https://github.com/terryma/vim-expand-region 
+[13]:https://github.com/kana/vim-textobj-user 
+[14]:https://github.com/kana/vim-textobj-line 
