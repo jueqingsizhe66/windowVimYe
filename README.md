@@ -190,10 +190,48 @@ ag 'hx' /www/t086.com
 7. 在观看代码时候，习惯性的打开TagBar, 事先会进行`ctags -R` 然后`ag -l>cscope.files` ,最后在`set path=f:/cygwin/bin  ; cscope -bq`生成cscope.out
 8. 
 
+
+```
+
+F2: think of ctrlspace
+
+
+In one workspace(&W : workspace), there're many bookmarks(&b : Bookmark). You can open files(&o: Open) of a bookmark(&b) in one tag(&l Lists, and open another file(&o) of a bookmark(&b) in another tag(&l :Lists). Once you opend one file(&o), actually, you created one buffer(&h Home)
+
+
+1. Workspace(w  workspace)
+2. Bookmark(b  bookmark)
+3. Files(&o Open)
+4. Tags(&l Lists)
+5. Buffers(&h Home)
+
+
+so, when click F2 in the vim, then o can view file lists, l can view many opened tas, h can view  buffers for opened files. 
+```
+
 ## 增加vim-expand-selection插件
 
 
 [vim-expand-region][12] 按照默认进行设置，使用+/-进行增大和减小选择区域
+
+
+## vimwiki的tagbar集成只支持python2.7版本
+
+装3.6版本的python不兼容,已在目录下打包了python，只需要解压添加到路径即可
+
+```
+
+let g:tagbar_type_vimwiki = {
+          \   'ctagstype':'vimwiki'
+          \ , 'kinds':['h:header']
+          \ , 'sro':'&&&'
+          \ , 'kind2scope':{'h':'header'}
+          \ , 'sort':0
+          \ , 'ctagsbin':'/path/to/vwtags.py'
+          \ , 'ctagsargs': 'default'
+          \ }
+```
+
 
 <hr/>
 <hr/>

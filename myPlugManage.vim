@@ -272,7 +272,7 @@ Plug 'kana/vim-operator-user'
 Plug 'haya14busa/vim-operator-flashy'
 
 "" underline the word at the current current
-Plug 'itchyny/vim-cursorword'
+"Plug 'itchyny/vim-cursorword'
 Plug 'henrik/vim-indexed-search'
 
 Plug 'AndrewRadev/splitjoin.vim'
