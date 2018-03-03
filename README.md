@@ -280,6 +280,166 @@ let g:tagbar_type_vimwiki = {
           \ }
 ```
 
+
+一些有用的编辑技巧(经验）
+
+一、vih vah 可以选择两个heading之间的信息
+
+```
+ah                      A section segment (the area between two consecutive
+                        headings) including trailing empty lines.
+ih                      A section segment without trailing empty lines.
+
+```
+二、 list的编写
+
+gL* gL# gLi gLI gL- gL+ gLa gLA 
+
+gll 进行右移， 不同于Tab的是，gll会计算item项计算，判断是属于第几个item
+三、在vimwiki使用`:VimwikiTable 2 10` 生成2个cols 10行记录的表格， 然后可以使用
+
+```
+    :VimwikiTable cols rows
+    Create a table with the given cols and rows
+
+    :VimwikiTable cols
+    Create a table with the given cols and 2 rows
+
+
+```
+
+
+1. vic  vac  选择一列
+2. vi\ va\ 选择一个cell
+3. gqq或者gww可以强制刷新Table 
+
+```
+a\                      A cell in a table.
+i\                      An inner cell in a table.
+ac                      A column in a table.
+ic                      An inner column in a table.
+
+al                      A list item plus its children.
+il                      A single list item.
+
+
+```
+
+还有一个比较厉害的`Alt left` 和`Alt right` 进行切换
+
+
+```
+*:VimwikiTableMoveColumnLeft* , *:VimwikiTableMoveColumnRight*
+    Move current column to the left or to the right:
+
+    Commands are mapped to <A-Left> and <A-Right> respectively.
+
+
+
+```
+四、Ctrl-Enter 生成垂直的new wiki， shift+enter水平的new wiki（在list的item模式 shift+enter切换item和文本模式
+直接Enter不产生新的界面，当前窗口编辑新wiki
+
+五、内部链接
+
+
+
+比较简单文件链接
+
+```
+  [[file:/home/somebody/a/b/c/music.mp3]]
+
+```
+
+### 基本原理
+Every header, tag, and bold text can be used as an anchor.  To jump to it, use
+a wikilink of the form
+```
+  [[file#anchor]]
+
+
+```
+
+### 跳转原理
+
+```
+
+For example, consider the following file "Todo.wiki": >
+  = My tasks =
+  :todo-lists:
+    == Home ==
+        - [ ] bathe my dog
+    == Work ==
+        - [ ] beg for *pay rise*
+    == Knitting club ==
+        === Knitting projects ===
+            - [ ] a *funny pig*
+            - [ ] a *scary dog*
+
+Then, to jump from your index.wiki directly to your knitting projects, use: >
+  [[Todo#Knitting projects]]
+
+Or, to jump to an individual project, use this link: >
+  [[Todo#funny pig]]
+
+Or, to jump to a tag, use this link: >
+  [[Todo#todo-lists]]
+
+If there are multiple instances of an anchor, you can use the long form which
+consists of the complete header hierarchy, separated by '#': >
+ [[Todo#My tasks#Knitting club#Knitting projects#scary dog]]
+
+If you don't feel like typing the whole stuff, type just [[Todo# and then
+|i_CTRL-X_CTRL-O| to start the omni completion of anchors.
+
+For jumping inside a single file, you can omit the file in the link: >
+  [[#pay rise]]
+
+
+```
+
+还有一种比较好的是内部链接，在双中括号内部头使用#然后跟上内部标签，当然在＃前面也可以加上文件名，这边的内部标签包括
+
+1. header
+2. 粗体(bolder)
+3. 双冒号构成的标记(标准形式)(tag)
+
+```
+A tag is a sequence of non-space characters between two colons: >
+        :tag-example:
+It is allowed to concatenate multiple tags in one line: >
+        :tag-one:tag-two:
+<
+If placed in the first two lines of a file, the whole file is tagged.  If
+placed under a header, within the 2 lines below it, the header is then tagged
+with this tag, and the tag search commands will jump to this specific header.
+Otherwise, the tag stands of its own and the search command jumps directly to
+it.
+
+<
+
+```
+
+很重要关于寻找tag的方法
+
+注意简单技能：当书写到#时候，快捷键ctrl-x ctrl-o,弹出所有的tags
+```
+
+Tags-related commands and options:
+   * |:VimwikiRebuildTags|
+   * |:VimwikiGenerateTags|
+   * |:VimwikiSearchTags|
+   * |vimwiki-option-auto_tags|
+
+
+
+```
+
+六、 目录生成
+
+有时候需要生成目录，方便观察，使用`:VimwikiTOC`,这里TOC表示Tabel of content
+还有注意一点，有可能vimwiki会自动帮您生成折叠(fold)，打开使用`zr`,关闭使用`zm`,更进一步`:help vimwiki`
+
 ## tag自动生成
 
 [vim-easytags][15] 需要配合[vim-misc][16],进而使用ctags.exe生成tag相关信息(不支持markdown文本编写文件，其他编写[文件][17]支持).
