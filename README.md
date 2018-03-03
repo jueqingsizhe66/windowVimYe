@@ -283,6 +283,7 @@ let g:tagbar_type_vimwiki = {
 ## tag自动生成
 
 [vim-easytags][15] 需要配合[vim-misc][16],进而使用ctags.exe生成tag相关信息(不支持markdown文本编写文件，其他编写[文件][17]支持).
+简单使用为`:updatetags`
 
 如何让项目的markdown自动生成tag？？？(原先以为是[vimoutliner][20],后来发现不是，vimoutliner支持otl文件后缀, 也不是[vim-easytags.vim][15]的事情 )
 自定义tag生成规则
