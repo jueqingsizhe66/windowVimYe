@@ -280,7 +280,78 @@ let g:tagbar_type_vimwiki = {
           \ }
 ```
 
+## tag自动生成
 
+[vim-easytags][15] 需要配合[vim-misc][16],进而使用ctags.exe生成tag相关信息(不支持markdown文本编写文件，其他编写[文件][17]支持).
+
+如何让项目的markdown自动生成tag？？？(原先以为是[vimoutliner][20],后来发现不是，vimoutliner支持otl文件后缀, 也不是[vim-easytags.vim][15]的事情 )
+自定义tag生成规则
+
+保存下面内容为.ctags,放入项目根目录即可（但是只支持当前目录), 这和vimwiki按照顺序生成不一样，此种方式是把所有的heading1绑在一起了
+```
+--langdef=markdown
+--langmap=markdown:.mkd
+--regex-markdown=/^#[ \t]+(.*)/\1/h,Heading_L1/
+--regex-markdown=/^##[ \t]+(.*)/\1/i,Heading_L2/
+--regex-markdown=/^###[ \t]+(.*)/\1/k,Heading_L3/
+
+
+```
+
+
+[支持Go的ctags][18]
+```
+
+--langdef=Go
+--langmap=Go:.go
+--regex-Go=/func([ \t]+\([^)]+\))?[ \t]+([a-zA-Z0-9_]+)/\2/f,func/
+--regex-Go=/var[ \t]+([a-zA-Z_][a-zA-Z0-9_]+)/\1/v,var/
+--regex-Go=/type[ \t]+([a-zA-Z_][a-zA-Z0-9_]+)/\1/t,type/
+```
+
+[ctags支持lua protobuf thrift objective-c][19]
+然后重新使用ctags，就会使用该文件中注册语言处理对应文件
+
+```
+--langdef=MYLUA
+--langmap=MYLUA:.lua
+--regex-MYLUA=/^local[ \t]+([a-zA-Z0-9_]+)[ \t]*=[ \t]*\{/\1/v,var/
+--regex-MYLUA=/[ \t]*([a-zA-Z0-9_]+)[ \t]*=[ \t]*function[ \t]*\(/\1/f,function/
+--regex-MYLUA=/function[ \t]+([a-zA-Z0-9_]+)[\.:]([a-zA-Z0-9_]+)[ \t]*\(/\2/f,function/
+
+--langdef=PROTO
+--langmap=PROTO:.proto
+--regex-PROTO=/^[ \t]*message[ \t]+([a-zA-Z0-9_\.]+)/\1/m,message/
+--regex-PROTO=/^[ \t]*(required|repeated|optional)[ \t]+[a-zA-Z0-9_\.]+[ \t]+([a-zA-Z0-9_]+)[ \t]*=/\2/f,field/
+
+--langdef=thrift
+--langmap=thrift:.thrift
+--regex-thrift=/^[ \t]*exception[ \t]+([a-zA-Z0-9_]+)/\1/x,exception/
+--regex-thrift=/^[ \t]*enum[ \t]+([a-zA-Z0-9_]+)/\1/e,enum/
+--regex-thrift=/^[ \t]*struct[ \t]+([a-zA-Z0-9_]+)/\1/s,struct/
+--regex-thrift=/^[ \t]*service[ \t]+([a-zA-Z0-9_]+)/\1/v,service/
+--regex-thrift=/^[ \t]*[0-9]+:[ \t]+([a-zA-Z0-9_]+)[ \t]+([a-zA-Z0-9_]+)/\2/m,member/
+--regex-thrift=/^[ \t]*([a-zA-Z0-9_]+)[ \t]+=/\1/a,value/
+--regex-thrift=/^[ \t]*[a-zA-Z0-9_<>]+[ \t]+([a-zA-Z0-9_]+)[ \t]*\(/\1/f,function/
+
+--langdef=objc
+--langmap=objc:.m.h
+--regex-objc=/^[ \t]*[-+][ \t]*\([^\)]*\)[ \t]*([a-zA-Z0-9_]+)/\1/m,method/
+--regex-objc=/^[ \t]*\@property.+[\* \t]+([a-zA-Z0-9_]+)[ \t]*;/\1/p,property/
+--regex-objc=/^[ \t]*\@interface[ \t]+([a-zA-Z0-9_]+)/\1/i,interface/
+--regex-objc=/^[ \t]*\@implementation[ \t]+([a-zA-Z0-9_]+)/\1/c,class/
+
+```
+
+
+快速复制.ctags文件到多个目录下
+
+```
+for i in `ls `; do cp ace-security/.ctags $i/.ctags ;done;
+
+```
+
+解释： ls列出所有目录和文件（我假设当前只有目录），有文件需要判断一下，这边不做,然护复制即可
 <hr/>
 <hr/>
 <hr/>
@@ -566,3 +637,9 @@ Other configurations are also well organized in vimrc.
 [12]:https://github.com/terryma/vim-expand-region 
 [13]:https://github.com/kana/vim-textobj-user 
 [14]:https://github.com/kana/vim-textobj-line 
+[15]:https://github.com/xolox/vim-easytags 
+[16]:https://github.com/xolox/vim-misc 
+[17]:http://ctags.sourceforge.net/languages.html 
+[18]:http://noyesno.net/page/ctags/support-go.html 
+[19]:http://blog.csdn.net/jncpp/article/details/42691421 
+[20]:https://github.com/vimoutliner/vimoutliner 
