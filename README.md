@@ -296,6 +296,8 @@ ih                      A section segment without trailing empty lines.
 gL* gL# gLi gLI gL- gL+ gLa gLA 
 
 gll 进行右移， 不同于Tab的是，gll会计算item项计算，判断是属于第几个item
+很重要的一点glh,gLh代表是左移。
+
 三、在vimwiki使用`:VimwikiTable 2 10` 生成2个cols 10行记录的表格， 然后可以使用
 
 ```
