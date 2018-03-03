@@ -13,7 +13,7 @@
 并且把.vim目录下的ag.exe添加到path路径下，这样你就可以愉快的`,a`,命令行显示`:Ack everything`
 ```
 
-## \<leader\>q: search context in files with ag, let you fly
+## I. \<leader\>q: search context in files with ag, let you fly
 
 十分有用的功能,q(查找光标下的单词) 空格斜杠查找项目中的单词
 
@@ -33,7 +33,7 @@ if executable("ag")
 endif
 ```
 
-## \<space\>\<space\>: search file in project directory with unite file_rec, let you fly too
+## II. \<space\>\<space\>: search file in project directory with unite file_rec, let you fly too
 Stackoverflow , author of Shoudo(去查看[vim-as-IDE][2])
 
 without vimproc(for async ,can be used in linux, had better not in windows)
@@ -46,7 +46,7 @@ In Windows, you should not use file_rec/async source. It is too slow and not eas
 所以你现在就可以在项目文件夹使用\<Space\> \<space\>来打开搜索文件夹目录搜索文件，可快可爽的感觉。
 
 
-## :Gdiff : fugitive Gdiff eye your difference of files
+## III. :Gdiff : fugitive Gdiff eye your difference of files
 
 wow, good, let you what is different with the latest version!!
 
@@ -55,7 +55,7 @@ Gwrite, stash what the changes.(暂存起来)
 
 
 
-## vim-tags
+## IV. vim-tags
 
 [blog: vim and ctags][3]
 
@@ -77,7 +77,7 @@ The most significant one is that Universal-ctags doesn't load ~/.ctags and ./.ct
 ```
 
 
-## vim-cscope
+## V. vim-cscope
 
 
 [cscope.exe][10] 得配套gnu的sort.exe否则报如下错误
@@ -177,7 +177,7 @@ ag 'hx' /www/t086.com
 ```
 
 
-## 当前vim工作流程
+## VI. 当前vim工作流程
 
 1. 打开文件，编写(涉及到git提交问题，一般选择emacs的magit形式，进行工作，就比如现在我正在emacs编写)
 2. 需要记录知识，概念，打开calendar(我已经在.vimrc)配置好，所以可以直接使用`,ca`打开calendar，调到当前日期写日记,当然直接打开当前日子`,wt`
@@ -209,7 +209,7 @@ In one workspace(&W : workspace), there're many bookmarks(&b : Bookmark). You ca
 so, when click F2 in the vim, then o can view file lists, l can view many opened tas, h can view  buffers for opened files. 
 ```
 
-## 增加vim-expand-selection插件
+## VII. 增加vim-expand-selection插件
 
 
 [vim-expand-region][12] 按照默认进行设置，使用+/-进行增大和减小选择区域
@@ -263,7 +263,7 @@ endfunction
 同时又安装了[vim-textobj-line][14] 所以支持`val vil`
 还有就是在使用完`vaw或者viw`之后，还可以使用`)`到句尾，使用`(`跳到句首
 
-## vimwiki的tagbar集成只支持python2.7版本
+## 第8. vimwiki的tagbar集成只支持python2.7版本
 
 装3.6版本的python不兼容,已在目录下打包了python，只需要解压添加到路径即可
 
@@ -398,7 +398,7 @@ For jumping inside a single file, you can omit the file in the link: >
 
 ```
 
-还有一种比较好的是内部链接，在双中括号内部头使用#然后跟上内部标签，当然在＃前面也可以加上文件名，这边的内部标签包括
+在双中括号内部头使用#然后跟上内部标签，当然在＃前面也可以加上文件名，这边的内部标签包括
 
 1. header
 2. 粗体(bolder)
@@ -440,7 +440,7 @@ Tags-related commands and options:
 有时候需要生成目录，方便观察，使用`:VimwikiTOC`,这里TOC表示Tabel of content
 还有注意一点，有可能vimwiki会自动帮您生成折叠(fold)，打开使用`zr`,关闭使用`zm`,更进一步`:help vimwiki`
 
-## tag自动生成
+## 第9. tag自动生成
 
 [vim-easytags][15] 需要配合[vim-misc][16],进而使用ctags.exe生成tag相关信息(不支持markdown文本编写文件，其他编写[文件][17]支持).
 简单使用为`:updatetags`
@@ -513,6 +513,7 @@ for i in `ls `; do cp ace-security/.ctags $i/.ctags ;done;
 ```
 
 解释： ls列出所有目录和文件（我假设当前只有目录），有文件需要判断一下，这边不做,然护复制即可
+
 <hr/>
 <hr/>
 <hr/>
