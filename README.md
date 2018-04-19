@@ -523,18 +523,79 @@ for i in `ls `; do cp ace-security/.ctags $i/.ctags ;done;
 
 ## 一些小技巧改变你的生活
 
-`,1  ,2 ,3` 分别打开第一个标签、第二个、第三个【原先使用gt1 gt2 gt3】
 
-`:Startify` 新增加了 `{'r': '~/.vim/README.md'}`, 快速打开文档，记录对vim新的认识
+1. `,1  ,2 ,3` 分别打开第一个标签、第二个、第三个【原先使用1gt 2gt2 3gt,  减少了你的手指按键时间, 当然两者思路不同，早先用的是标签信息先行，我就知道我要哪个
+             而新的方式则是local leader先行，然后才确定具体哪个标签】
 
-`V` 大写的V，可视化当前行，对于演示的时候特别有效，表示我现在只是针对当前行进行操作，特别具有目的性。
+```
+你可以用如下命令取得所有的标记的列表：
+:marks
+你会注意到有一些特殊的标记，包括：
 
-`,cp  ,cf ,cd`  复制当前文件的全路径， 当前文件文件名，当前文件的目录
+ ' 跳转前的位置
 
-`m[A-Z]` 阔文件间进行标记，对于大型项目有用，使用`单反引号[A-Z]` 进行跳转, 对于`m[a-z]`只支持文件内跳转。
+ " 最后编辑的位置
 
-`,wr ,wd` 针对于wiki文件，可以重命名当前wiki链接，也可以删除该链接。
+ [ 最后修改的位置的开头
 
+ ] 最后修改的位置的结尾
+
+```
+
+2. `:Startify` 新增加了 `{'r': '~/.vim/README.md'}`, 快速打开文档，记录对vim新的认识
+
+3. `V` 大写的V，可视化当前行，对于演示的时候特别有效，表示我现在只是针对当前行进行操作，特别具有目的性。
+
+4. `,cp  ,cf ,cd`  复制当前文件的全路径， 当前文件文件名，当前文件的目录
+
+5. `m[A-Z]` 阔文件间进行标记，对于大型项目有用，使用`单反引号[A-Z]` 进行跳转, 对于`m[a-z]`只支持文件内跳转。
+
+6. `,wr ,wd` 针对于wiki文件，可以重命名当前wiki链接，也可以删除该链接。
+
+7. `,l`，针对于当前文件搜索特定内容，类似于emacs的 Ivy-swipe的作用，搜索功能强大
+
+8. `,f` 打开vimproc文件夹管理界面， `K`新建一个文件夹   `N` 新建一个文件
+    选择功能 : 使用空格
+    命令： m  移动文件
+           d  删除文件
+           r  重命名当前文件[单个]
+           ~  HOME目录(windows下的用户目录)
+           \  磁盘根目录
+           &  ampersand 项目目录(默认是.git .hg .svn等)
+           L  所有磁盘分区(功能还是挺强大的，方便切换，当然最好还是在startify中添加bookmark比较方便些)
+9. `:map` 知道你的vim编辑器的所有快捷键(体现持续学习的过程)。
+
+10. `xdate` 自己写的函数，迅速插入当前日期 
+
+    `iabbrev xdate <c-r>=strftime("%Y-%m-%d")<cr>`
+
+    然后又定制了speeddate插件，使用`Ctrl+A` 表示增加当前日期， 使用`Ctrl+X` 表示减少当前日期
+
+11. 编译perl单文件
+```
+Set makeprg=perl
+
+然后就可以打开vim *.pl
+在命令行模式下执行 :make %
+%号指代的旧时的当前文件
+```
+
+12. what is path?
+
+`:h path`
+
+```
+	This is a list of directories which will be searched when using the
+	|gf|, [f, ]f, ^Wf, |:find|, |:sfind|, |:tabfind| and other commands,
+	provided that the file being searched for has a relative path (not
+	starting with "/", "./" or "../").  The directories in the 'path'
+	option may be relative or absolute.
+	- Use commas to separate directory names: >
+		:set path=.,/usr/local/include,/usr/include
+
+```
+
+2018-04-19 
 
 依旧奋战在vim的持续学习中……
 
