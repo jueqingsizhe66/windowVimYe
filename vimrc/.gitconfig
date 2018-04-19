@@ -1,0 +1,8 @@
+[user]
+	name = Ye Zhaoliang
+	email = zhaoturkkey@163.com
+[color]
+	ui = true
+	status = auto
+[color "diff"]
+	meta = blue black bold

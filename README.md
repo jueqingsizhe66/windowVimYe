@@ -327,7 +327,7 @@ il                      A single list item.
 
 ```
 
-还有一个比较厉害的`Alt left` 和`Alt right` 进行切换
+还有一个比较厉害的`Alt left` 和`Alt right`[小技巧方便操作] 进行切换
 
 
 ```
@@ -424,10 +424,11 @@ it.
 
 很重要关于寻找tag的方法
 
-注意简单技能：当书写到#时候，快捷键ctrl-x ctrl-o,弹出所有的tags
+注意简单技能：当书写到#时候，快捷键`ctrl-x ctrl-o`[小技巧，改变你的方式],弹出所有的tags
 ```
 
 Tags-related commands and options:
+
    * |:VimwikiRebuildTags|
    * |:VimwikiGenerateTags|
    * |:VimwikiSearchTags|
@@ -515,6 +516,28 @@ for i in `ls `; do cp ace-security/.ctags $i/.ctags ;done;
 ```
 
 解释： ls列出所有目录和文件（我假设当前只有目录），有文件需要判断一下，这边不做,然护复制即可
+
+
+
+# Part2. 开始新篇章
+
+## 一些小技巧改变你的生活
+
+`,1  ,2 ,3` 分别打开第一个标签、第二个、第三个【原先使用gt1 gt2 gt3】
+
+`:Startify` 新增加了 `{'r': '~/.vim/README.md'}`, 快速打开文档，记录对vim新的认识
+
+`V` 大写的V，可视化当前行，对于演示的时候特别有效，表示我现在只是针对当前行进行操作，特别具有目的性。
+
+`,cp  ,cf ,cd`  复制当前文件的全路径， 当前文件文件名，当前文件的目录
+
+`m[A-Z]` 阔文件间进行标记，对于大型项目有用，使用`单反引号[A-Z]` 进行跳转, 对于`m[a-z]`只支持文件内跳转。
+
+`,wr ,wd` 针对于wiki文件，可以重命名当前wiki链接，也可以删除该链接。
+
+
+依旧奋战在vim的持续学习中……
+
 
 <hr/>
 <hr/>

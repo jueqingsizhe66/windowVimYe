@@ -1119,7 +1119,7 @@ let g:startify_list_order = [
         \ 'commands',
         \ ]
 
-let g:startify_bookmarks = [ {'c': 'C:\Program Files (x86)\Vim\.vimrc'}, {'m': '~/.vim/myPlugManage.vim'}, 'D:\Todo\todo.txt_cli-2.9\todo.txt','https://github.com/kana/vim-textobj-user/wiki']
+let g:startify_bookmarks = [ {'c': 'C:\Program Files (x86)\Vim\.vimrc'}, {'m': '~/.vim/myPlugManage.vim'}, {'r': '~/.vim/README.md'}, 'D:\Todo\todo.txt_cli-2.9\todo.txt','https://github.com/kana/vim-textobj-user/wiki']
 let g:startify_commands = [
     \ ':help reference',
     \ ['Vim Reference', 'h ref'],
@@ -1136,6 +1136,7 @@ let g:startify_commands = [
     \ ':h splitjoin',
     \ ':h textobj',
     \ ':h text object',
+    \ ':h vim-copy-filename',
     \ ]
 
 "" for vim operator-flashy
