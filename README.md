@@ -618,11 +618,24 @@ option may be relative or absolute.
 
 如果在打开gvim持续出现`git -c color.status=false...`, 那么直接使用`Ctrl +C`关闭该窗口即可
 
+14. goyo.vim and limelight.vim专注写作
+
+[goyo.vim][28] and [limeligh.vim][29]
+
+先执行`:goyo`然后也可以调整窗口大小`:Goyo100`
+
+紧接着`:LimeLight0.8`比较合适些
+
+
+![limelight][30]
+
+
 --------
 
 
 
 依旧奋战在vim的持续学习中……
+
 
 
 <hr/>
@@ -702,3 +715,6 @@ Other configurations are also well organized in vimrc.
 [25]: https://github.com/jueqingsizhe66/windowVimYe/blob/develop/img/markdown.png
 [26]: https://github.com/jueqingsizhe66/windowVimYe/blob/develop/img/ctrlspace.png
 [27]: https://github.com/jueqingsizhe66/windowVimYe/blob/develop/img/startify.png
+[28]: https://github.com/junegunn/goyo.vim
+[29]: https://github.com/junegunn/limelight.vim
+[30]: https://github.com/jueqingsizhe66/windowVimYe/blob/develop/img/limelight.png
