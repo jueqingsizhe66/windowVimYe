@@ -624,7 +624,7 @@ option may be relative or absolute.
 
 先执行`:goyo`然后也可以调整窗口大小`:Goyo100`
 
-紧接着`:LimeLight0.8`比较合适些
+紧接着`:LimeLight0.8`比较合适些(limelight适宜任何文件) <2018-06-05 01:00>
 
 
 ![limelight][30]
