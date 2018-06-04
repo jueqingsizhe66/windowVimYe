@@ -14,7 +14,7 @@ Plug 'scrooloose/snipmate-snippets'
 "Plug 'honza/vim-snippets'
 "Plug 'mattn/zencoding-vim'
 Plug 'mattn/emmet-vim'
-Plug 'mattn/webapi-vim'
+"Plug 'mattn/webapi-vim'
 Plug 'Raimondi/delimitMate'
 "------ snipmate dependencies -------
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -80,7 +80,7 @@ Plug 'brookhong/cscope.vim'
 Plug 'othree/html5.vim'
 " Plug 'tpope/vim-haml'
 Plug 'pangloss/vim-javascript'
-Plug 'kchmck/vim-coffee-script'
+"Plug 'kchmck/vim-coffee-script'
 Plug 'nono/jquery.vim'
 " Plug 'groenewege/vim-less'
 " Plug 'wavded/vim-stylus'
@@ -257,6 +257,7 @@ Plug 'mattn/calendar-vim'
 
 
 Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/gv.vim'
 
 Plug 'tpope/vim-rhubarb'
 

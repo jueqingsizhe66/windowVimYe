@@ -53,8 +53,14 @@ wow, good, let you what is different with the latest version!!
 Gread, let you reset the changes from the latest commit version(东西没有了额！！)
 Gwrite, stash what the changes.(暂存起来)
 
+:set nolist 不显示右箭头。
 
+[gv.vim][21] 不错的快捷的版本显示工具（需要[fugitive][22]的支持！)
 
+![gv][23]
+
+配合上`GitPull` 可以不断的提取更新，然后观看改进的地方，不错的学习方式！！！
+![gitpull][24]
 ## IV. vim-tags
 
 [blog: vim and ctags][3]
@@ -183,7 +189,10 @@ ag 'hx' /www/t086.com
 2. 需要记录知识，概念，打开calendar(我已经在.vimrc)配置好，所以可以直接使用`,ca`打开calendar，调到当前日期写日记,当然直接打开当前日子`,wt`
 然后有可能使用`xdate`产生日期，很有意思的是enter一下即可产生链接(vimwiki做得不错），然后还可以使用backspace回到`,wi` diary总管理界面，可不舒爽
 的一个编辑过程，两个键方便写来读去，很是方便 ,进一步参考[what vim teatches you][11]
-3. 双空格进行搜索【unite】，`,a`进行查找【unite+ag】，`,q`查找光标下单词【unite+ag】，使用`F2`打开ctrlspace文件管理器(h:Home(Buffer mode) l:Lists(tag mode) o:Open(File mode)  w:Workspace(space mode) b:Bookmark(bookmark mode)   当在buffer mode下使用大写的A添加当前目录到bookmark )，或者使用`,f`打开当前文件夹列表【unite】(最常用，也方便)，事先会在NerdTree找到Bookmark，然后切换到那个目录下，如果想要提交到github也方便使用`:shell`或者使用`:GitStatus`进行事先查看
+3. 双空格进行搜索【unite】，`,a`进行查找【unite+ag】，`,q`查找光标下单词【unite+ag】，使用`F2`打开ctrlspace文件管理器(h:Home(Buffer mode) l:Lists(tag mode) o:Open(File mode)  w:Workspace(space mode) b:Bookmark(bookmark mode)   当在buffer mode下使用大写的A添加当前目录到bookmark )，
+![ctrlspace][26]
+或者使用`,f`打开当前文件夹列表【unite】(最常用，也方便)，事先会在NerdTree找到Bookmark(A可以toggle最大化nerdtree窗口，`:bookmark`添加当前项目到nerdtree bookmark系列下面!注意只能在NerdTree窗口下才能执行`:bookmark`命令。
+然后切换到那个目录下，如果想要提交到github也方便使用`:shell`或者使用`:GitStatus`进行事先查看
 4. 会使用vim-text-obj,然后使用vim-expand-region的+/-来增大选择区域。
 5. 每天都在学习`:h ctrlspace` ,`:h vimwiki`, `:h vim-easy-object`,`:h nerdtree` etc
 6. 当觉得当前窗口过小`:res 10` 增加到10行（对于多窗口模式下有用）
@@ -451,7 +460,7 @@ Tags-related commands and options:
 如何让项目的markdown自动生成tag？？？(原先以为是[vimoutliner][20],后来发现不是，vimoutliner支持otl文件后缀, 也不是[vim-easytags.vim][15]的事情 )
 自定义tag生成规则
 
-保存下面内容为.ctags,放入项目根目录即可（但是只支持当前目录), 这和vimwiki按照顺序生成不一样，此种方式是把所有的heading1绑在一起了
+保存下面内容为.ctags[在README.md目录下],放入项目根目录即可（但是只支持当前目录), 这和vimwiki按照顺序生成不一样，此种方式是把所有的heading1绑在一起了
 ```
 --langdef=markdown
 --langmap=markdown:.mkd
@@ -461,6 +470,8 @@ Tags-related commands and options:
 
 
 ```
+
+![markdown][25]
 
 
 [支持Go的ctags][18]
@@ -544,6 +555,8 @@ for i in `ls `; do cp ace-security/.ctags $i/.ctags ;done;
 
 2. `:Startify` 新增加了 `{'r': '~/.vim/README.md'}`, 快速打开文档，记录对vim新的认识
 
+![startify][27]
+
 3. `V` 大写的V，可视化当前行，对于演示的时候特别有效，表示我现在只是针对当前行进行操作，特别具有目的性。
 
 4. `,cp  ,cf ,cd`  复制当前文件的全路径， 当前文件文件名，当前文件的目录
@@ -585,17 +598,29 @@ Set makeprg=perl
 `:h path`
 
 ```
-	This is a list of directories which will be searched when using the
-	|gf|, [f, ]f, ^Wf, |:find|, |:sfind|, |:tabfind| and other commands,
-	provided that the file being searched for has a relative path (not
-	starting with "/", "./" or "../").  The directories in the 'path'
-	option may be relative or absolute.
-	- Use commas to separate directory names: >
-		:set path=.,/usr/local/include,/usr/include
+This is a list of directories which will be searched when using the
+|gf|, [f, ]f, ^Wf, |:find|, |:sfind|, |:tabfind| and other commands,
+provided that the file being searched for has a relative path (not
+starting with "/", "./" or "../").  The directories in the 'path'
+option may be relative or absolute.
+- Use commas to separate directory names
+:set path=.,/usr/local/include,/usr/include
 
 ```
 
 2018-04-19 
+
+13. vimwiki tab技巧
+
+`:tabname:` 创建一个名为tabname的tab
+
+`[[#tabname]]` 调用tabname的tab
+
+如果在打开gvim持续出现`git -c color.status=false...`, 那么直接使用`Ctrl +C`关闭该窗口即可
+
+--------
+
+
 
 依旧奋战在vim的持续学习中……
 
@@ -617,8 +642,6 @@ Set makeprg=perl
 
 Maple's Vim config
 ==================
-blue
-I use `vundle` to manage my plugins, which makes my `.vim` directory clean and tidy. If you are new to vim, the following two posts
 
 * [Vim Introduction and Tutorial](http://blog.interlinked.org/tutorials/vim_tutorial.html)
 * [Vim plugins I use](http://mirnazim.org/writings/vim-plugins-i-use/)
@@ -633,242 +656,23 @@ Such as completions for variable names and function names(neocomplcache), expand
 * [neocomplcache](http://github.com/Shougo/neocomplcache) - Ultimate auto completion system for Vim.
 * [snipMate](https://github.com/garbas/vim-snipmate) - Plugin for using TextMate-style snippets in Vim.
 * [supertab](http://github.com/ervandew/supertab) - Perform all your vim insert mode completions with Tab.
-* [ZenCoding](http://github.com/mattn/zencoding-vim) - High speed HTML and CSS coding.
 * [delimitMate](http://github.com/Raimondi/delimitMate) - Provides auto-balancing and some expansions for parens, quotes, etc.
 
-### Shortcuts
 
-* `Tab` -> Rotate across the completion list
-* `Tab` -> Expand snippets or jump to the next placeholder of snippet
-* `Ctrl` + `j` -> Call zen-coding expansion on html tags
-
-### Dependencies
-
-Compile Vim with `--enable-pythoninterp` and `--enable-rubyinterp` to enable powerful syntax completion supplied by neocomplcache.
-
-``` bash
-brew install macvim --override-system-vim  # OS X
-yaourt -S gvim                             # ArchLinux
-sudo apt-get install vim-gtk               # Ubuntu
-```
-
-### Tutorial
-
-``` vim
-:help zencoding
-```
-
-[Movie teaching zencoding.vim](http://mattn.github.com/zencoding-vim/)
-
-### Screenshots
-
-![Completions](https://raw.github.com/humiaozuzu/dot-vimrc/master/screenshots/completions.gif)
-![Snippets](https://raw.github.com/humiaozuzu/dot-vimrc/master/screenshots/snippets.gif)
-
-#### Sometimes we need to jump to previous positions to copy/paste or do some fixes:
 ## Fast navigation
 
 * [matchit](http://github.com/tsaleh/vim-matchit) - Extended % matching for HTML, LaTeX, and many other languages.
 * [EasyMotion](https://github.com/Lokaltog/vim-easymotion) - Vim motions on speed!
 
-### Tutorial
-
-``` vim
-:help easymotion
-```
-
-### Shortcuts
-
-* `%` -> Jump between brackets and html/xml tags
-* `<leader>` + `w` -> Beginning of the word.
-* `<leader>` + `f` + `{char}` -> Find {char} to the right.
-
-#### Doing fixes should be as fast as possible!
-## Fast editing
-
-* [surround](http://github.com/tpope/vim-surround) - Easily delete, change and add such surroundings in pairs.
-* [nerdcommenter](http://github.com/scrooloose/nerdcommenter) - Easy commenting of code for many filetypes.
-* [Gundo](https://github.com/sjl/gundo.vim/) - visualize your Vim undo tree.
-* [tabular](https://github.com/godlygeek/tabular) - Vim script for text filtering and alignment.
-* [IndentGuides](https://github.com/nathanaelkane/vim-indent-guides) - A Vim plugin for visually displaying indent levels in code.
-
-### Tutorial
-
-``` vim
-:help text-objexts
-:help surround
-:help tabular
-```
-
-### Shortcuts
-
-* `%` -> Jump between brackets and html/xml tags
-* `<leader>` + `c` + `<space>` -> Toggle comment
-* `F3` -> Toggle Gundo viewer
-* `F4` -> Toggle Indent Guides
-
-## IDE features
-
-* [nerdtree](http://github.com/scrooloose/nerdtree) - A tree explorer plugin for navigating the filesystem.
-* [tabbar](http://github.com/humiaozuzu/TabBar) -  Add tab bar and quickt tab switch with alt+1~9.
-* [tagbar](http://github.com/majutsushi/tagbar) - Displays the tags of the current file in a sidebar.
-* [ack-vim](http://github.com/mileszs/ack.vim) - Front for the Perl module App::Ack.
-* [ctrlp](https://github.com/kien/ctrlp.vim) - Fuzzy file, buffer, mru and tag finder.
-* [powerline](https://github.com/Lokaltog/vim-powerline) - The ultimate vim statusline utility.
-* [fugitive](https://github.com/tpope/vim-fugitive/) - a Git wrapper so awesome, it should be illegal.
-* [syntastic](https://github.com/scrooloose/syntastic) - Syntax checking hacks for vim.
-
-### Dependencie
-
-```bash
-yaourt -S ack ctags                  # ArchLinux
-sudo apt-get install ack-grep ctags  # Ubuntu
-brew install ack ctags               # OS X
-```
-
-For syntax check tools:
-
-Languages    | Lint Tools    | Install guide
------------- | ------------- | ------------
-C            | gcc           | built-in
-CPP          | g++           | built-in
-CoffeeScript | coffee        | `npm install -g coffeelint`
-CSS          | csslint       | `npm install -g csslint`
-Erlang       | escript       | built-in
-Go           | go            | built-in
-Haml         | haml          | built-in
-Haskell      | ghc-mod       | `cabal install ghc-mod`
-HTML         | tidy          | built-in
-Java         | javac         | built-in
-Javascript   | jshint        | `npm install -g jshint`
-Json         | jsonlint      | `npm install -g jsonlint`
-Less         | lessc         | built-in
-Lisp         | clisp         | built-in
-Lua          | luac          | built-in
-Perl         | perl          | built-in
-PHP          | php           | built-in
-Puppet       | puppet        | built-in
-Python       | pyflakes      | `sudo pip install pyflakes`
-Ruby         | ruby          | built-in
-Scala        | scala         | built-in
-Sass         | sass          | built-in
-Scss         | scss/compass  | `gem install compass`
-XML          | xmllint       | built-in
-YAML         | js-yaml       | `npm install -g js-yaml`
-
-### Shortcuts
-* `F5` -> Toggle Nerd-Tree file viewer
-* `F6` -> Toggle tagbar
-* `Ctrl` + `p` -> Toggle ctrlp
-* `Alt` + `1~9` -> Switch between multiple buffers
-* `Ctrl` + `h/j/k/l` -> Moving between spilt windows
-* `:Ack` or `<leader>` + `a` -> Toggle Ack searching
-
-### Screenshots
-
-![Vim IDE 1](https://raw.github.com/humiaozuzu/dot-vimrc/master/screenshots/vim.jpg)
-![Vim IDE 2](https://raw.github.com/humiaozuzu/dot-vimrc/master/screenshots/vim2.jpg)
-
-## Other Utils
-
-* [fcitx-status](https://github.com/humiaozuzu/fcitx-status) - automatic change status of fcitx in vim.
-* [togglemouse](https://github.com/nvie/vim-togglemouse/) - Toggles the mouse focus between Vim and your terminal emulator, allowing terminal emulator mouse commands, like copy/paste.
-
-### Shortcuts
-
-* `F12` -> Toggle Mouse
-
-## Better syntax/indent for language enhancement
-
-- Server
-   - php
-   - go
-   - rails
-   - jinja
-   - jade
-- Web
-   - html5
-   - haml
-   - javascript
-   - jquery
-   - coffeescript
-   - less
-   - stylus
-   - handlebar
-- Markup language
-   - markdown
-   - textile
-- FPs
-   - racket
-   - clojure
-   - scale
- 
-
-## Themes
-
-* [blackboard](https://github.com/rickharris/vim-blackboard) - Textmate's Blackboard theme for vim (with iTerm2 theme)
-* [molokai](https://github.com/rickharris/vim-monokai) - A port of the monokai scheme for TextMate
-* [solarized](https://github.com/altercation/vim-colors-solarized) - precision colorscheme for the vim text editor
-* [vividchalk](https://github.com/tpope/vim-vividchalk) - colorscheme based on the Vibrant Ink theme for TextMate
-* [distinguished](https://github.com/Lokaltog/vim-distinguished) - A dark vim color scheme for 256-color terminals.
-* [tomorrow](https://github.com/chriskempson/vim-tomorrow-theme) - Tomorrow Theme for Vim
-* [fisa](https://github.com/fisadev/fisa-vim-colorscheme) - soft color scheme for terminals with 256 colors
-Clone in Mac
-
-## Additional functions
-
-1. File encoding auto detection
-* Hightlight current line and column
-* Automatically jump to the last edited location
-* `:w`/`:wq` error correction
-* Remove trailing white space(run `:FixWhitespace` in vim)
-* Code folding is disabled, enable it as you wish
-* `w!!` to write if you forget add sudo
-* Indent style:
-   * JavaScript - Use soft-tabs with a two space indent(According to this [Post](http://atroche.org/post/30994290348/javascript-indentation)).
-   * HTML/CSS - Use soft-tabs with a two space indent(According to Google and Github's HTML/CSS style guide, just Google it).
-   * PHP - Use soft-tabs with a two space indent(According to [Apache PHP Style Guide](http://svn.apache.org/repos/asf/shindig/trunk/php/docs/style-guide.html)).
-   * Python - Use soft-tabs with a four space indent([PEP8](http://www.python.org/dev/peps/pep-0008/)).
-
-## Installation
-
-1. Backup your old vim configuration files:
-
-        mv ~/.vim ~/.vim.orig
-        mv ~/.vimrc ~/.vimrc.orig
-
-2. Clone and install this repo:
-
-        git clone git://github.com/humiaozuzu/dot-vimrc.git ~/.vim
-        ln -s ~/.vim/vimrc ~/.vimrc
-
-3. Setup `Vundle`:
-
-        git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-
-4. Install bundles. Launch vim(ignore the errors and they will disappear after installing needed plugins)and run:
-
-        :BundleInstall
-
-Thst's it!
-
-For installation on Windows, please refer to this post: http://blog.yoxyue.com/post/gvim-on-win7 (Thanks to [yoxyue](https://github.com/yoxyue))
-
 ## How to manage this vimrc?
 
-All plugins are listed in file `bundles.vim` with detailed comments, just add plugins as you like.
+All plugins are listed in file `plug.vim` with detailed comments, just add plugins as you like.
 
-1. `:BundleClean` to clean up unused plugins
-2. `:BundleInstall` to install newly added plugins
-3. `:BundleInstall!` to upgrade all plugins
+1. `:PlugClean` to clean up unused plugins
+2. `:PlugInstall` to install newly added plugins
+3. `:PlugInstall!` to upgrade all plugins
 
 Other configurations are also well organized in vimrc.
-
-## Known issues
-
-* Compeletions are not well supported for statically typed languages(c/c++)
-* Snippets are not shown in completions popups
-* May has some conflicts with GVIM
 
 
 [1]:http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/
@@ -891,3 +695,10 @@ Other configurations are also well organized in vimrc.
 [18]:http://noyesno.net/page/ctags/support-go.html 
 [19]:http://blog.csdn.net/jncpp/article/details/42691421 
 [20]:https://github.com/vimoutliner/vimoutliner 
+[21]: https://github.com/junegunn/gv.vim
+[22]: https://github.com/tpope/vim-fugitive
+[23]: https://github.com/jueqingsizhe66/windowVimYe/blob/develop/img/gv.png
+[24]: https://github.com/jueqingsizhe66/windowVimYe/blob/develop/img/gitpull.png
+[25]: https://github.com/jueqingsizhe66/windowVimYe/blob/develop/img/markdown.png
+[26]: https://github.com/jueqingsizhe66/windowVimYe/blob/develop/img/ctrlspace.png
+[27]: https://github.com/jueqingsizhe66/windowVimYe/blob/develop/img/startify.png
