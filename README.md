@@ -328,10 +328,18 @@ ih                      A section segment without trailing empty lines.
 ```
 二、 list的编写
 
+list item中赋予了gl gL与一个强大函数功能[也可以算是list的一个技能]，通过它结合后缀字符从而对list item进行控制
+
 gL* gL# gLi gLI gL- gL+ gLa gLA 
 
 gll 进行右移， 不同于Tab的是，gll会计算item项计算，判断是属于第几个item
-很重要的一点glh,gLh代表是左移。
+很重要的一点glh,gLh代表是左移。(Ctrl+@ toggle checkbox)
+
+``` vim
+nmap <C-@> <Plug>VimwikiToggleListItem
+vmap <C-@> <Plug>VimwikiToggleListItem
+
+```
 
 三、在vimwiki使用`:VimwikiTable 2 10` 生成2个cols 10行记录的表格， 然后可以使用
 
