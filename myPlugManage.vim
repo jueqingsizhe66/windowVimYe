@@ -6,10 +6,15 @@ call plug#begin('~/.vim/bundle')
 "------------------
 Plug 'Shougo/neocomplcache'
 "Plug 'Shougo/neocomplete'
-Plug 'garbas/vim-snipmate'
 Plug 'ervandew/supertab'
 "Plug 'honza/snipmate-snippets'
-Plug 'scrooloose/snipmate-snippets'
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" try anoother
+" Plug 'scrooloose/snipmate-snippets'
+Plug 'garbas/vim-snipmate'
+"
+Plug 'honza/vim-snippets'
+"""""""""""""""""""""""""""""""""""""""""""""""""""
 "python
 "Plug 'honza/vim-snippets'
 "Plug 'mattn/zencoding-vim'
@@ -260,7 +265,9 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-
+"Plug 'junegunn/vim-github-dashboard'
+" Multiple commands
+"Plug 'junegunn/vim-github-dashboard'
 
 Plug 'tpope/vim-rhubarb'
 

@@ -13,6 +13,8 @@
 并且把.vim目录下的ag.exe添加到path路径下，这样你就可以愉快的`,a`,命令行显示`:Ack everything`
 ```
 
+fzf和ag其实都是类似的东西。
+
 ## I. \<leader\>q: search context in files with ag, let you fly
 
 十分有用的功能,q(查找光标下的单词) 空格斜杠查找项目中的单词
@@ -25,12 +27,36 @@ nnoremap <space>/ :Ag
 
 ```
 
+我居然忘了z/ 特别有用(当然/也是可以有作用
+
+``` vim
+
+map z/ <Plug>(incsearch-easymotion-/)
+map z? <Plug>(incsearch-easymotion-?)
+map zg/ <Plug>(incsearch-easymotion-stay)
+
+
+
+```
+
 同时也改进了ctrlspace的设置
 
 ```
 if executable("ag")
         let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
 endif
+```
+
+因为安装了ag.vim所以可以按照如下配置方式
+
+``` vim
+
+" --- type  ,q to search the word in all files in the current dir
+nmap <leader>q :Ag <c-r>=expand("<cword>")<cr><cr>
+nnoremap <space>/ :Ag
+
+
+
 ```
 
 ## II. \<space\>\<space\>: search file in project directory with unite file_rec, let you fly too
@@ -612,6 +638,9 @@ option may be relative or absolute.
 
 13. vimwiki tab技巧
 
+要记得vimfiles的概念
+
+
 `:tabname:` 创建一个名为tabname的tab
 
 `[[#tabname]]` 调用tabname的tab
@@ -620,6 +649,7 @@ option may be relative or absolute.
 
 14. goyo.vim and limelight.vim专注写作
 
+很重要一点当前我用的colorscheme是[srcery][35]
 [goyo.vim][28] and [limeligh.vim][29]
 
 先执行`:goyo`然后也可以调整窗口大小`:Goyo100`
@@ -670,6 +700,17 @@ xmap <Leader>h :Goyo<CR>
 
 ```
 
+
+15. honza/vim-snippets  类似于emacs的yasnippet
+
+[honza/vim-snippets][31]
+
+同时最好安装上[garbas的vim-snipmate][32],通过它编写c等编程语言很方便，比如输入for然后tab键即可补全for循环。
+以及两个辅助配件[vim-addon-mw-utils][33]和[tlib-vim][34]
+
+
+没打开一个.vimrc,都会查找~/vimfiles/templates文件夹对应的vim.templates。类似的，每打开一个perl文件，都会查找
+~/.vimfiles/templates底下的perl.templates
 
 --------
 
@@ -759,3 +800,8 @@ Other configurations are also well organized in vimrc.
 [28]: https://github.com/junegunn/goyo.vim
 [29]: https://github.com/junegunn/limelight.vim
 [30]: https://github.com/jueqingsizhe66/windowVimYe/blob/develop/img/limelight.png
+[31]: https://github.com/honza/vim-snippets
+[32]: https://github.com/garbas/vim-snipmate
+[33]: https://github.com/MarcWeber/vim-addon-mw-utils.git
+[34]: https://github.com/tomtom/tlib_vim.git
+[35]:https://github.com/roosta/vim-srcery 
