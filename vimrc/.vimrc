@@ -402,15 +402,37 @@ autocmd FileType c setlocal omnifunc=ccomplete#Complete
 let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
 let g:SuperTabRetainCompletionType=2
 
+
+"""--------------------------------------------------------------------------------------------------
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store  " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 
+
+"Ctrlp-funky
+"let g:ctrlp_funky_sh_type = 'bash' "default bash    you can set zsh
+let g:ctrlp_funky_multi_buffers = 1
+let g:ctrlp_funky_syntax_highlight = 1
+"enable cache
+let g:ctrlp_funky_use_cache = 1
+" CtrlP for NerdTree
+let g:ctrlp_funky_nerdtree_include_files = 1 
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>"
+
+nmap <F2> :CtrlPMRUFiles<cr>
+nmap <F1> :CtrlPBuffer<cr>
+
+nmap <F4> :MaxmizerToggle<cr>
+"szw/vim-maximizer
+"最大化当前窗口\返回之前状态切换，在多个split窗口的非常有用
+"szw/vim-maximizer
+"""--------------------------------------------------------------------------------------------------
 " Keybindings for plugin toggle
 nmap <F5> :TagbarToggle<cr>
 nmap <F6> :NERDTreeToggle<cr>
 "nmap <F3> :GundoToggle<cr>
-nmap <F4> :IndentGuidesToggle<cr>
 nmap  <D-/> :
 "nnoremap <leader>a :Ack
 nnoremap <leader>a :Ack!<SPACE>
@@ -488,6 +510,10 @@ let w:full_screen=0
 
 map <F11> :call FullScreen()<CR>
 
+" if has("gui_running") && has("win32")
+"     map <F11> :call libcallnr("gvimfullscreen_64.dll", "ToggleFullScreen", 0)<CR>
+" endif
+"
 func! FullScreen()
 if w:full_screen==1
 let w:full_screen=0
@@ -772,19 +798,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-"Ctrlp
-"let g:ctrlp_funky_sh_type = 'bash' "default bash    you can set zsh
-let g:ctrlp_funky_multi_buffers = 1
-let g:ctrlp_funky_syntax_highlight = 1
-"enable cache
-let g:ctrlp_funky_use_cache = 1
-" CtrlP for NerdTree
-let g:ctrlp_funky_nerdtree_include_files = 1 
-"ctrl[-func
-nnoremap <Leader>fu :CtrlPFunky<Cr>
-" narrow the list down with a word under cursor
-nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>"
-
 "let g:airline_theme='alduin'
 let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts=1
@@ -838,26 +851,31 @@ let g:javaapi#delay_dirs = [
 set tags+=./tags
 
 "Ctrl-Space
-if executable("ag")
-    let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
-endif
+"----------------------------------------------------------------------------------------------
+"
+" if executable("ag")
+"     let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+" endif
+"
+" if has("gui_running")
+"     " Settings for MacVim and Inconsolata font
+"     let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
+" endif
+"
+" let g:CtrlSpaceSearchTiming = 500
+" let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+" let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+" let g:CtrlSpaceSaveWorkspaceOnExit = 1
+"
+" "hidden is needed for CtrlSpace
+" set nocompatible
+" set hidden
+" "let g:ctrlspace_default_mapping_key="<leader><F2>"
+" nnoremap <F2> :CtrlSpace O<CR>
+" let g:CtrlSpaceHeight=1
+"
 
-if has("gui_running")
-    " Settings for MacVim and Inconsolata font
-    let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
-endif
-
-let g:CtrlSpaceSearchTiming = 500
-let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
-let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
-let g:CtrlSpaceSaveWorkspaceOnExit = 1
-"hidden is needed for CtrlSpace
-set nocompatible
-set hidden
-"let g:ctrlspace_default_mapping_key="<leader><F2>"
-nnoremap <F2> :CtrlSpace O<CR>
-let g:CtrlSpaceHeight=1
-
+"----------------------------------------------------------------------------------------------
 
 "" tab encapsulation
 " tab 操作
@@ -1003,7 +1021,7 @@ hi VimwikiHeader4 guifg=#FF00FF
 hi VimwikiHeader5 guifg=#00FFFF  
 hi VimwikiHeader6 guifg=#FFFFFF  
 "" vimwiki with guifont Droidsansmonofor
-let g:vimwiki_listsyms = '✗○◐●✓'
+"let g:vimwiki_listsyms = ' .oO' 
 "let g:vimwiki_listsyms = '.oOX' "the default value
 "" for vim-move
 let g:move_key_modifier = 'C'
@@ -1119,7 +1137,7 @@ let g:startify_list_order = [
         \ 'commands',
         \ ]
 
-let g:startify_bookmarks = [ {'c': 'C:\Program Files (x86)\Vim\.vimrc'}, {'m': '~/.vim/myPlugManage.vim'}, {'r': '~/.vim/README.md'}, 'D:\Todo\todo.txt_cli-2.9\todo.txt','https://github.com/kana/vim-textobj-user/wiki']
+let g:startify_bookmarks = [ {'c': 'C:/Program Files (x86)/Vim/.vimrc'}, {'m': '~/.vim/myPlugManage.vim'}, {'r': '~/.vim/README.md'}, {'v': 'C:/Users/yzl/Desktop/javaImprove/codeReview.wiki'}, 'https://github.com/kana/vim-textobj-user/wiki', {'g': 'C:/Users/yzl/Desktop/gunsDevelop/notes/gunsNotes.wiki'}, {'o': 'C:/Users/yzl/Desktop/gunsDevelop/notes/roses.wiki'}, {'w': 'G:/writing/dynamic.wiki'},{'a': 'C:/Users/yzl/Desktop/javaImprove/architect-awesome/README.md.wiki'}]
 let g:startify_commands = [
     \ ':help reference',
     \ ['Vim Reference', 'h ref'],
@@ -1382,3 +1400,6 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 nmap <Leader>h :Goyo<CR>
 xmap <Leader>h :Goyo<CR>
+
+
+:cd ~/.vim

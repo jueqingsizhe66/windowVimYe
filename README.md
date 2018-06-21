@@ -36,6 +36,7 @@ map z? <Plug>(incsearch-easymotion-?)
 map zg/ <Plug>(incsearch-easymotion-stay)
 
 
+在同一个文件下使用`,w` `,b`进行快速定位 easymotion
 
 ```
 
@@ -87,6 +88,7 @@ Gwrite, stash what the changes.(暂存起来)
 
 配合上`GitPull` 可以不断的提取更新，然后观看改进的地方，不错的学习方式！！！
 ![gitpull][24]
+
 ## IV. vim-tags
 
 [blog: vim and ctags][3]
@@ -254,7 +256,7 @@ so, when click F2 in the vim, then o can view file lists, l can view many opened
 
 ```
 call textobj#user#plugin('datetime', {
-\   'date': {
+\   'markdate': {
 \     'pattern': '\<\d\d\d\d-\d\d-\d\d\>',
 \     'select': ['ad', 'id'],
 \   },
@@ -546,7 +548,7 @@ Tags-related commands and options:
 --langdef=objc
 --langmap=objc:.m.h
 --regex-objc=/^[ \t]*[-+][ \t]*\([^\)]*\)[ \t]*([a-zA-Z0-9_]+)/\1/m,method/
---regex-objc=/^[ \t]*\@property.+[\* \t]+([a-zA-Z0-9_]+)[ \t]*;/\1/p,property/
+
 --regex-objc=/^[ \t]*\@interface[ \t]+([a-zA-Z0-9_]+)/\1/i,interface/
 --regex-objc=/^[ \t]*\@implementation[ \t]+([a-zA-Z0-9_]+)/\1/c,class/
 
@@ -577,7 +579,7 @@ for i in `ls `; do cp ace-security/.ctags $i/.ctags ;done;
 :marks
 你会注意到有一些特殊的标记，包括：
 
- ' 跳转前的位置
+ ' 跳转前的位置( <2018-06-08 16:37> 输入两次'跳转回上一次访问位置
 
  " 最后编辑的位置
 
@@ -726,7 +728,34 @@ xmap <Leader>h :Goyo<CR>
 
 依旧奋战在vim的持续学习中……
 
+16. 类似于ctrlspace的ctrlp文件快速导航
 
+通过[bigvim][36]学习，认识到我的配置中还加入CtrlP(按住ESC退出)
+
+`:CtrlP`(Ctrl-P 为快捷键)
+
+`:CtrlPMRUFiles`  相当于mru功能，most recently used(不用打开Startify了)---->设置快捷键为F2
+
+`:CtrlPBuffers`  查找当前tag的buffers------>设置快捷键为F1(终于把默认的F1调用help.txt改了快捷键)
+
+`:CtrlPTags` 查找所有Tag，所以真是和CtrlSpace冲突了
+
+并由此抛弃了Ctrl-Space做了一次大变动，把F2投影成为`:CtrlP`(因为比较发现他的速度比较快. 功能和CtrlSpace类似)
+默认现在调用方式是`Ctrl-P`
+
+查找函数得加上CtrlP的插件CtrlPFunky
+
+`,fu` 执行`:CtrlPFunky`,列出当前文件的所有函数
+
+`,fU` 执行`:CtrlPFunky`. expand('<cword>')<Cr>, 定位到指定函数中
+
+17. vim-maximizer 最大化当前窗口
+
+'szw/vim-maximizer'在多窗口阅读时候特别有用！！快捷键为F4
+
+18.  vim-MatchTagAlways
+
+也是特别方便，特别是观看html、xml文档等成对tag组成的标识文件时候！！
 
 <hr/>
 <hr/>
@@ -772,11 +801,22 @@ Such as completions for variable names and function names(neocomplcache), expand
 All plugins are listed in file `plug.vim` with detailed comments, just add plugins as you like.
 
 1. `:PlugClean` to clean up unused plugins
-2. `:PlugInstall` to install newly added plugins
 3. `:PlugInstall!` to upgrade all plugins
 
 Other configurations are also well organized in vimrc.
 
+2. `:PlugInstall` to install newly added plugins
+``` vim
+nnoremap g<LocalLeader> :call setline(line('.'),substitute(getline('.'),'\\','\/','g'))<CR>
+nnoremap gd<LocalLeader> :call setline(line('.'),substitute(getline('.'),'\\','\\\\','g'))<CR>
+
+也就是g\(gd\表示把windows的单斜杠变为双斜杠)
+
+
+```
+
+注意windows下直接复制过来的链接不好使，得转化一下 `K:\IntellijHome\elasticsearch-6.1.2\bin `
+变为`K:/IntellijHome/elasticsearch-6.1.2/bin `
 
 [1]:http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/
 [2]:http://yannesposito.com/Scratch/en/blog/Vim-as-IDE/
@@ -813,3 +853,4 @@ Other configurations are also well organized in vimrc.
 [33]: https://github.com/MarcWeber/vim-addon-mw-utils.git
 [34]: https://github.com/tomtom/tlib_vim.git
 [35]:https://github.com/roosta/vim-srcery 
+[36]:https://github.com/ruanyl/bigvim 

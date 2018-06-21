@@ -187,6 +187,8 @@ Plug 'chrisbra/csv.vim'
 
 Plug 'tacahiroy/ctrlp-funky'
 
+Plug 'Valloric/MatchTagAlways'
+Plug 'szw/vim-maximizer'
 " For java
 " Plug 'yuratomo/java-api-complete'
 " Plug 'yuratomo/java-api-javax'
@@ -199,7 +201,9 @@ Plug 'tacahiroy/ctrlp-funky'
 
 "strength the NerdTree, multiTags with one NerdTree
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'vim-ctrlspace/vim-ctrlspace'
+
+" 通过ctrlp替换ctrl-space
+"Plug 'vim-ctrlspace/vim-ctrlspace'
 
 Plug 'tpope/vim-repeat'
 
