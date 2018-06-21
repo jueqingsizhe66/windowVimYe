@@ -757,6 +757,13 @@ xmap <Leader>h :Goyo<CR>
 
 也是特别方便，特别是观看html、xml文档等成对tag组成的标识文件时候！！
 
+19. 整理了myplugins
+
+注释掉不常用，需要的时候关掉注释即可！！简化你的vim
+下图为被注释掉的语言，
+
+![delete][37]
+
 <hr/>
 <hr/>
 <hr/>
@@ -854,3 +861,4 @@ nnoremap gd<LocalLeader> :call setline(line('.'),substitute(getline('.'),'\\','\
 [34]: https://github.com/tomtom/tlib_vim.git
 [35]:https://github.com/roosta/vim-srcery 
 [36]:https://github.com/ruanyl/bigvim 
+[37]: https://github.com/jueqingsizhe66/windowVimYe/blob/develop/img/delete.png
