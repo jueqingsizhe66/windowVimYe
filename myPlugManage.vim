@@ -185,7 +185,6 @@ Plug 'hrj/vim-DrawIt'
 "" Improve the nerd tree
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 "Plug 'ryanoasis/nerd-fonts'  "it should be download,not bundle
-Plug 'tpope/vim-fireplace'
 
 "Plug 'https://github.com/dracula/vim'
 "Plug 'dracula/dracula-theme'
@@ -244,6 +243,9 @@ Plug 'chrisbra/csv.vim'
 Plug 'vim-scripts/paredit.vim'
 Plug 'rkulla/pydiction'
 Plug 'vimwiki/vimwiki'
+
+"clojure
+"Plug 'tpope/vim-fireplace'
 "" language specified end----------------------------------------------------------"
 "-----------------------------------------------------------------------------------"
 

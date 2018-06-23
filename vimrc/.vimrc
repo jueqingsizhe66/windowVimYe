@@ -348,9 +348,9 @@ endif
     map <leader>l :call ToggleLocationList()<CR>
 
 "quickfix"
-nmap <F7> :cn<cr>
-nmap <F8> :cp<cr>
-
+" nmap <F7> :cn<cr>
+" nmap <F8> :cp<cr>
+"
 " Nerd Tree
 let NERDChristmasTree=0
 let NERDTreeWinSize=30
@@ -424,7 +424,7 @@ nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>"
 nmap <F2> :CtrlPMRUFiles<cr>
 nmap <F1> :CtrlPBuffer<cr>
 
-nmap <F4> :MaxmizerToggle<cr>
+nmap <F4> :MaximizerToggle<cr>
 "szw/vim-maximizer
 "最大化当前窗口\返回之前状态切换，在多个split窗口的非常有用
 "szw/vim-maximizer
@@ -445,8 +445,18 @@ endif
 
 nnoremap <leader>v V`]
 
-nmap <F8> ggO!!-*-coding:utf8-*-<CR>!     @Date    : <Esc>:read !date<CR>kJ<CR>i!     @email   : zhaoturkkey@163.com<CR>!     @author  : Ye zhaoliang<CR>!     @usage   :<CR>!          <CR>!     @input   : <CR>!          <CR>!     @outcome : <CR>!         <CR>!     @purpose : <CR>!        
+"" v visual   0  start of line    x: delete  k: move cursor upper line  $:
+"$" last column   a: input words
+nmap <F8> O<ESC>O<ESC>jO- Brief Summary(by yzl):<CR><ESC>0d$i{{{<CR><Tab><CR><ESC>v0xk$a1. so what?
 
+
+
+
+
+
+" nmap <F8> ggO!!-*-coding:utf8-*-<CR>!     @Date    : <Esc>:read !date<CR>kJ<CR>i!     @email   : zhaoturkkey@163.com<CR>!     @author  : Ye zhaoliang<CR>!     @usage   :<CR>!          <CR>!     @input   : <CR>!          <CR>!     @outcome : <CR>!         <CR>!     @purpose : <CR>!
+"
+"
 "map by zhaoliang~~
 "------------------
 " Useful Functions
@@ -532,8 +542,9 @@ endfunc
 "   call append(4,"!*********************************************************!")
 "   echohl WarningMsg | echo "Successful in adding  the copyright."|echohl None
 "endf
-map <F8> o!zhao*****************************************************!<CR>!                       DATA_READER                       !<CR>!            ---------------------------------            !<CR>!                     >>>>> SUBS <<<<<                    !<CR>!*********************************************************!<CR><ESC>
-
+"
+" map <F8> o!zhao*****************************************************!<CR>!                       DATA_READER                       !<CR>!            ---------------------------------            !<CR>!                     >>>>> SUBS <<<<<                    !<CR>!*********************************************************!<CR><ESC>
+"
 "function AddFortranTitle()
 "   i!zhao*****************************************************!<CR>
 "   !                       DATA_READER                       !<CR>
