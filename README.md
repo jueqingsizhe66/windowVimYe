@@ -837,6 +837,16 @@ vipga 或者vip:EasyAlgin /---->/ 可以针对regexp表达式进行对齐
 vip:EasyAlign 2/--->/ 还可以添加第二个，第三个位置  以及左对齐 右对齐
 ```
 
+22. git push
+
+我的vim的git操作
+
+```
+1. GitAdd .
+2. GitCommit -am "Some Readme for this commit"
+3. GitPush origin develop 
+```
+
 <hr/>
 <hr/>
 <hr/>
