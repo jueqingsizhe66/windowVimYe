@@ -732,7 +732,34 @@ xmap <Leader>h :Goyo<CR>
 
 通过[bigvim][36]学习，认识到我的配置中还加入CtrlP(按住ESC退出)
 
-`:CtrlP`(Ctrl-P 为快捷键)
+`:CtrlP`(Ctrl-P 为快捷键) 2018-06-24 终于想起了这个快捷键，现在F1 F2都只是打开的文件，而无法搜索当前项目文件夹内的所有文件。而且还有一个制约点，
+    即使现在`pwd`显示为项目路径，还得打开项目路径下的文件下，ctrlp才会查找项目文件夹内容！速度快！
+    当然在linux底下最后试试fzf(go语言开发，ctrlp通过vimscript编写)，虽然他可能更快一写
+    特别大量的文件集在考虑使用fzf
+        fzf 的原因是有几十万个文件或更多的时候 ui 几乎没有明显卡顿，LeaderF 在这方面好像还不够，刚刚试了下有点小卡，当然已经比 ctrlp 好很多了。 
+
+
+CtrlP和ag也可以结合起来使用，[ctrlP-ag][38]
+
+``` vim
+   - 由于使用外部工具ag扫描必须开启g:ctrlp_user_command选项，而开启这个选项会带来一些副作用，
+比如g:ctrlp_show_hidden和g:ctrlp_custom_ignore'会失效 
+，g:ctrlp_show_hidden用于搜索隐藏的文件和目录， g:ctrlp_custom_ignore用于自定义忽略的文件，
+如果有这些方面的需求的话就需要权衡一下了。
+   - 另外还有一个缺点，ag需要index阶段，所以会影响你的使用，就好像CtrlSpace一样，结合Ag，都得indexing过程。
+
+```
+
+为了提高ctrlp搜索的命中率，于是做了一些配置(文件名的配置的确是有用的！不然如果按照全路径有很多不符合逻辑的出现)
+
+```
+"默认使用全路径搜索，置1后按文件名搜索，准确率会有所提高，可以用<C-d>进行切换
+let g:ctrlp_by_filename = 1
+"默认不使用正则表达式，置1改为默认使用正则表达式，可以用<C-r>进行切换
+"调用ag进行搜索提升速度，同时不使用缓存文件
+let g:ctrlp_regexp = 0
+
+```
 
 `:CtrlPMRUFiles`  相当于mru功能，most recently used(不用打开Startify了)---->设置快捷键为F2
 
@@ -764,13 +791,15 @@ xmap <Leader>h :Goyo<CR>
 
 ![delete][37]
 
-20. 有趣的阅读注释(只针对于*.wiki后缀的文件)
+20. 有趣的阅读注释(只针对于wiki后缀的文件)
+
 
 有时候你会想着在你的wiki系统中，加入你特殊的注释、小结，这很有必要，是对你的阅读的一段回顾和提升。为此，你选择下面的独特风格，
 这样也方便通过ag.exe进行查找所有包含Brief Summary的内容.
 
+
 ``` vim
-nmap <F8> O<ESC>O<ESC>jO- Brief Summary(by yzl):<CR><ESC>0d$i{{{<CR><Tab><CR><ESC>v0xk$a1. so what?
+    nmap <F8> O<ESC>O<ESC>jO- Brief Summary(by yzl):<CR><ESC>0d$i{{{<CR><Tab><CR><ESC>v0xk$a1. so what?
 
 ```
 
@@ -786,6 +815,7 @@ nmap <F8> O<ESC>O<ESC>jO- Brief Summary(by yzl):<CR><ESC>0d$i{{{<CR><Tab><CR><ES
 8. k$a 往上一行，并调到行尾，追加字符
 9. 1. so what? 为追加内容， 表示一个列表！
 
+哈哈，原来如此，我是可以在vim中选择某一部分进行复制的，拷贝，直接y即可（v selectSomePart y)
 
 最终效果:
 
@@ -795,6 +825,16 @@ nmap <F8> O<ESC>O<ESC>jO- Brief Summary(by yzl):<CR><ESC>0d$i{{{<CR><Tab><CR><ES
     1. so what?<cursor>
 }}}
 
+```
+
+21. vim-easy-align
+
+[ easy-align ][39] 方便对齐
+
+```
+vipga 或者vip:EasyAlgin /---->/ 可以针对regexp表达式进行对齐
+
+vip:EasyAlign 2/--->/ 还可以添加第二个，第三个位置  以及左对齐 右对齐
 ```
 
 <hr/>
@@ -895,3 +935,5 @@ nnoremap gd<LocalLeader> :call setline(line('.'),substitute(getline('.'),'\\','\
 [35]:https://github.com/roosta/vim-srcery 
 [36]:https://github.com/ruanyl/bigvim 
 [37]: https://github.com/jueqingsizhe66/windowVimYe/blob/develop/img/delete.png
+[38]:https://blog.csdn.net/demorngel/article/details/69054531 
+[39]:https://github.com/junegunn/vim-easy-align 
