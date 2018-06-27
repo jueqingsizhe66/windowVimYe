@@ -40,14 +40,6 @@ map zg/ <Plug>(incsearch-easymotion-stay)
 
 ```
 
-同时也改进了ctrlspace的设置
-
-```
-if executable("ag")
-        let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
-endif
-```
-
 因为安装了ag.vim所以可以按照如下配置方式
 
 ``` vim
@@ -75,14 +67,7 @@ In Windows, you should not use file_rec/async source. It is too slow and not eas
 
 ## III. :Gdiff : fugitive Gdiff eye your difference of files
 
-wow, good, let you what is different with the latest version!!
-
-Gread, let you reset the changes from the latest commit version(东西没有了额！！)
-Gwrite, stash what the changes.(暂存起来)
-
-:set nolist 不显示右箭头。
-
-[gv.vim][21] 不错的快捷的版本显示工具（需要[fugitive][22]的支持！)
+gv.vim][21] 不错的快捷的版本显示工具（需要[fugitive][22]的支持！)
 
 ![gv][23]
 
@@ -152,7 +137,7 @@ set csprg=cscope
 
 使用方法：
 
-1. 使用`ag -l > cscope.files` 生成该文件，（默认cscope只处理*.c *.lex *.yal文件，不处理*.java *.c++等），所以需要手动搜索一下
+1. 使用`ag -l > cscope.files` 生成该文件，（默认cscope只处理` *.c *.lex *.yal文件，不处理*.java *.c++`等），所以需要手动搜索一下
 2. 使用`set path=f:\cygwin\bin;cscope -bq` 生成索引文件
 3. 打开vim, 定位到cscope.out 所在目录，使用`cscope add cscope.out`即可或者`cscope add .`
 4. 现在既可以查找数据了 ，使用`,fs`查找光标下符号(`,fg`特指光标下函数的定义), 使用`,fc`查看谁调用了光标下的函数,比较特殊的是`,fd`查找光标下
@@ -217,20 +202,20 @@ ag 'hx' /www/t086.com
 2. 需要记录知识，概念，打开calendar(我已经在.vimrc)配置好，所以可以直接使用`,ca`打开calendar，调到当前日期写日记,当然直接打开当前日子`,wt`
 然后有可能使用`xdate`产生日期，很有意思的是enter一下即可产生链接(vimwiki做得不错），然后还可以使用backspace回到`,wi` diary总管理界面，可不舒爽
 的一个编辑过程，两个键方便写来读去，很是方便 ,进一步参考[what vim teatches you][11]
-3. 双空格进行搜索【unite】，`,a`进行查找【unite+ag】，`,q`查找光标下单词【unite+ag】，使用`F2`打开ctrlspace文件管理器(h:Home(Buffer mode) l:Lists(tag mode) o:Open(File mode)  w:Workspace(space mode) b:Bookmark(bookmark mode)   当在buffer mode下使用大写的A添加当前目录到bookmark )，
-![ctrlspace][26]
+3. 双空格进行搜索【unite】，`,a`进行查找【unite+ag】，`,q`查找光标下单词【unite+ag】，使用`F2` 打开ctrlp最经常打开的文件列表，使用Ctrl-P打开你当前目录下的文件)，
 或者使用`,f`打开当前文件夹列表【unite】(最常用，也方便)，事先会在NerdTree找到Bookmark(A可以toggle最大化nerdtree窗口，`:bookmark`添加当前项目到nerdtree bookmark系列下面!注意只能在NerdTree窗口下才能执行`:bookmark`命令。
 然后切换到那个目录下，如果想要提交到github也方便使用`:shell`或者使用`:GitStatus`进行事先查看
 4. 会使用vim-text-obj,然后使用vim-expand-region的+/-来增大选择区域。
-5. 每天都在学习`:h ctrlspace` ,`:h vimwiki`, `:h vim-easy-object`,`:h nerdtree` etc
+5. 每天都在学习`:h vimwiki`, `:h vim-easy-object`,`:h nerdtree` etc
 6. 当觉得当前窗口过小`:res 10` 增加到10行（对于多窗口模式下有用）
 7. 在观看代码时候，习惯性的打开TagBar, 事先会进行`ctags -R` 然后`ag -l>cscope.files` ,最后在`set path=f:/cygwin/bin  ; cscope -bq`生成cscope.out
 8. 
 
 
 ```
+虽然ctrlspace被我从vim配置中移除了，但是他整合的几个概念还是有意思
 
-F2: think of ctrlspace
+ think of ctrlspace
 
 
 In one workspace(&W : workspace), there're many bookmarks(&b : Bookmark). You can open files(&o: Open) of a bookmark(&b) in one tag(&l Lists, and open another file(&o) of a bookmark(&b) in another tag(&l :Lists). Once you opend one file(&o), actually, you created one buffer(&h Home)
@@ -332,7 +317,8 @@ ih                      A section segment without trailing empty lines.
 
 list item中赋予了gl gL与一个强大函数功能[也可以算是list的一个技能]，通过它结合后缀字符从而对list item进行控制
 
-gL* gL# gLi gLI gL- gL+ gLa gLA 
+
+`gL* gL# gLi gLI gL- gL+ gLa gLA `
 
 gll 进行右移， 不同于Tab的是，gll会计算item项计算，判断是属于第几个item
 很重要的一点glh,gLh代表是左移。(Ctrl+@ toggle checkbox)
@@ -490,7 +476,7 @@ Tags-related commands and options:
 
 ## 第9. tag自动生成
 
-[vim-easytags][15] 需要配合[vim-misc][16],进而使用ctags.exe生成tag相关信息(不支持markdown文本编写文件，其他编写[文件][17]支持).
+[vim-easytags][15] 需要配合[vim-misc][15],进而使用ctags.exe生成tag相关信息(不支持markdown文本编写文件，其他编写[文件][17]支持).
 简单使用为`:updatetags`
 
 如何让项目的markdown自动生成tag？？？(原先以为是[vimoutliner][20],后来发现不是，vimoutliner支持otl文件后缀, 也不是[vim-easytags.vim][15]的事情 )
@@ -589,7 +575,7 @@ for i in `ls `; do cp ace-security/.ctags $i/.ctags ;done;
 
 ```
 
-2. `:Startify` 新增加了 `{'r': '~/.vim/README.md'}`, 快速打开文档，记录对vim新的认识
+2. `:Startify` 新增加了 `{'r': '~/.vim/README.md'}`, 快速打开文档，记录对vim新的认识(再输入冒号时候 Shift+;不必要 只要分号键即可！也就是说在可视模式下输入分号等效于冒号)
 
 ![startify][27]
 
