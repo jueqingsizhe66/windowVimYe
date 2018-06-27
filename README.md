@@ -833,6 +833,35 @@ vip:EasyAlign 2/--->/ 还可以添加第二个，第三个位置  以及左对�
 3. GitPush origin develop 
 ```
 
+23. incsearch 和升级版的incsearch-easymotion
+
+[ incsearch ][40]  升级版的搜索
+
+[ incsearch-easymotion ][41] 支持模糊匹配和easymotion, 一般是本page中
+
+
+24. Greplace整理了ag产生的结果j
+
+[Greplace][42]  is  a vim plugin for doing a search and replace across many files, put the result in the new file. 
+
+``` vim
+"" 不见得提升多少，反而觉得开启indexing变慢
+" if executable('ag')
+"   set grepprg=ag\ --nogroup\ --nocolor
+"   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"   let g:ctrlp_use_caching = 0
+" endif
+
+```
+
+usage:
+
+```
+:Gsearch
+
+:Greplace
+
+```
 <hr/>
 <hr/>
 <hr/>
@@ -933,3 +962,6 @@ nnoremap gd<LocalLeader> :call setline(line('.'),substitute(getline('.'),'\\','\
 [37]: https://github.com/jueqingsizhe66/windowVimYe/blob/develop/img/delete.png
 [38]:https://blog.csdn.net/demorngel/article/details/69054531 
 [39]:https://github.com/junegunn/vim-easy-align 
+[40]:https://github.com/haya14busa/incsearch.vim 
+[41]:https://github.com/haya14busa/incsearch-easymotion.vim 
+[42]:https://github.com/skwp/greplace.vim 

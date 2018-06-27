@@ -31,7 +31,6 @@ Plug 'Lokaltog/vim-easymotion'
 "--------------
 " Fast editing
 "--------------
-Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 "Plug 'sjl/gundo.vim'
 Plug 'godlygeek/tabular'
@@ -46,6 +45,8 @@ Plug 'majutsushi/tagbar'
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
 Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
+Plug 'skwp/greplace.vim'  
 ""  file search tools
 Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
@@ -58,10 +59,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'brookhong/cscope.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"git 1
-Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'skwp/greplace.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 "nerdtree
 Plug 'ryanoasis/vim-devicons'
@@ -70,7 +68,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 "--------------
 " Color Schemes
 "--------------
-Plug 'altercation/vim-colors-solarized'
+"Plug 'altercation/vim-colors-solarized'  ;;需要时候再安装
 Plug 'https://github.com/roosta/vim-srcery'
 Plug 'mhinz/vim-startify'
 
@@ -85,9 +83,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'nvie/vim-togglemouse'
 Plug 'terryma/vim-expand-region'
 Plug 'dimasg/vim-mark'
-Plug 'vim-scripts/scribble.vim'
 Plug 'dbmrq/vim-chalk'
-Plug 'tpope/vim-repeat'
 ""support csv
 
 "strength the NerdTree, multiTags with one NerdTree
@@ -126,7 +122,7 @@ Plug 'sgur/unite-everything'
 Plug 'chip/vim-fat-finger'
 
 "Plug 'vim-scripts/Vim-R-plugin'
-Plug 'wdicarlo/vim-notebook'
+"Plug 'wdicarlo/vim-notebook'  ;;; 有了vimwiki就不用阿勒
 "" code align vertical bar
 Plug 'Yggdroot/indentLine'
 
@@ -151,6 +147,12 @@ Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-speeddating'
+"git 1
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+
+
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 ""for conventer
@@ -214,10 +216,14 @@ Plug 'hrj/vim-DrawIt'
 "------- markup language -------
 Plug 'tpope/vim-markdown'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'rking/ag.vim'
 Plug 'vim-scripts/txt.vim'
 " Plug 'timcharper/textile.vim'
+" ************************************************************
+"  ---------------------racket related plugin------------------
 " Plug 'wlangstroth/vim-racket'
+"Plug 'vim-scripts/scribble.vim'
+"  ---------------------racket related plugin------------------
+" ************************************************************
 " Plug 'vim-scripts/VimClojure'
 " Plug 'rosstimson/scala-vim-support'
 "matlab
