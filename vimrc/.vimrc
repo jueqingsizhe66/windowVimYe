@@ -408,9 +408,30 @@ let g:SuperTabRetainCompletionType=2
 set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store  " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 
-
+"" https://blog.csdn.net/demorngel/article/details/69054531 
+"默认使用全路径搜索，置1后按文件名搜索，准确率会有所提高，可以用<C-d>进行切换
+let g:ctrlp_by_filename = 1
+"默认不使用正则表达式，置1改为默认使用正则表达式，可以用<C-r>进行切换
+"调用ag进行搜索提升速度，同时不使用缓存文件
+let g:ctrlp_regexp = 0
+"" 不见得提升多少，反而觉得开启indexing变慢
+" if executable('ag')
+"   set grepprg=ag\ --nogroup\ --nocolor
+"   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"   let g:ctrlp_use_caching = 0
+" endif
 "Ctrlp-funky
 "let g:ctrlp_funky_sh_type = 'bash' "default bash    you can set zsh
+"  open in which window, 我喜欢在新tag中国
+  " t - in a new tab.
+  " h - in a new horizontal split.
+  " v - in a new vertical split.
+  " r - in the current window.
+" 
+let g:ctrlp_open_new_file = 't'
+
+
+
 let g:ctrlp_funky_multi_buffers = 1
 let g:ctrlp_funky_syntax_highlight = 1
 "enable cache
@@ -784,19 +805,19 @@ nmap <silent> <leader>lw :LUWalk<cr>
 "chalk setting
 set foldmethod=marker
 
-vmap zf <Plug>Chalk          " Create fold at visual selection
-nmap zf <Plug>Chalk          " Create fold at operator movement
-nmap zF <Plug>ChalkRange     " Create fold for specified number of lines
+vmap zf <Plug>Chalk
+nmap zf <Plug>Chalk
+nmap zF <Plug>ChalkRange
 
-nmap Zf <Plug>SingleChalk    " Open single fold at current level
+nmap Zf <Plug>SingleChalk
                              " or specified count
-nmap ZF <Plug>SingleChalkUp  " Open single fold at next level
+nmap ZF <Plug>SingleChalkUp
                              " or specified count
 
-nmap =z <Plug>ChalkUp        " Increment current fold level
-nmap -z <Plug>ChalkDown      " Decrement current fold level
-vmap =z <Plug>ChalkUp        " Increment levels in selection
-vmap -z <Plug>ChalkDown      " Decrement levels in selection
+nmap =z <Plug>ChalkUp
+nmap -z <Plug>ChalkDown
+vmap =z <Plug>ChalkUp
+vmap -z <Plug>ChalkDown
 
 
 "syntastic
@@ -1043,10 +1064,10 @@ set termguicolors
 
 "for easy align 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
-"xmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-"nmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 "let g:syntastic_enable_matlab_checker = 0
 " Easy align interactive
 vnoremap <silent> <Enter> :EasyAlign<cr>
@@ -1148,7 +1169,7 @@ let g:startify_list_order = [
         \ 'commands',
         \ ]
 
-let g:startify_bookmarks = [ {'c': 'C:/Program Files (x86)/Vim/.vimrc'}, {'m': '~/.vim/myPlugManage.vim'}, {'r': '~/.vim/README.md'}, {'v': 'C:/Users/yzl/Desktop/javaImprove/codeReview.wiki'}, 'https://github.com/kana/vim-textobj-user/wiki', {'g': 'C:/Users/yzl/Desktop/gunsDevelop/notes/gunsNotes.wiki'}, {'o': 'C:/Users/yzl/Desktop/gunsDevelop/notes/roses.wiki'}, {'w': 'G:/writing/dynamic.wiki'},{'a': 'C:/Users/yzl/Desktop/javaImprove/architect-awesome/README.md.wiki'}]
+let g:startify_bookmarks = [ {'c': 'C:/Program Files (x86)/Vim/.vimrc'}, {'m': '~/.vim/myPlugManage.vim'}, {'r': '~/.vim/README.md'}, {'v': 'C:/Users/yzl/Desktop/javaImprove/codeReview/review.wiki'}, 'https://github.com/kana/vim-textobj-user/wiki', {'g': 'C:/Users/yzl/Desktop/gunsDevelop/notes/gunsNotes.wiki'}, {'o': 'C:/Users/yzl/Desktop/gunsDevelop/notes/roses.wiki'}, {'w': 'G:/writing/dynamic.wiki'},{'a': 'C:/Users/yzl/Desktop/javaImprove/architect-awesome/README.md.wiki'}, {'t': 'K:/IntellijHome/t-io/README.md '}, {'j': 'K:/IntellijHome/j-im/README.md '}]
 let g:startify_commands = [
     \ ':help reference',
     \ ['Vim Reference', 'h ref'],
@@ -1412,5 +1433,30 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 nmap <Leader>h :Goyo<CR>
 xmap <Leader>h :Goyo<CR>
 
+"" redact
+nmap <leader>cr <Plug>Redact
+vmap <leader>cr <Plug>Redact
+
+nmap <leader>co <Plug>Redact!
+vmap <leader>co <Plug>Redact!
+
+
+"" ditto
+" Use autocmds to check your text automatically and keep the highlighting
+" up to date (easier):
+au FileType markdown,wiki,org,text,tex DittoOn  " Turn on Ditto's autocmds
+nmap <leader>dt <Plug>ToggleDitto
+
+" If you don't want the autocmds, you can also use an operator to check
+" specific parts of your text:
+" vmap <leader>d <Plug>Ditto	       " Call Ditto on visual selection
+" nmap <leader>d <Plug>Ditto	       " Call Ditto on operator movement
+
+nmap =d <Plug>DittoNext
+nmap -d <Plug>DittoPrev
+nmap +d <Plug>DittoGood
+nmap _d <Plug>DittoBad
+nmap ]d <Plug>DittoMore
+nmap [d <Plug>DittoLess
 
 :cd ~/.vim

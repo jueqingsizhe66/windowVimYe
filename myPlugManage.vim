@@ -42,18 +42,18 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'scrooloose/nerdtree'
 "Plug 'humiaozuzu/TabBar'
 Plug 'majutsushi/tagbar'
-Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-easytags'" {{{1
 Plug 'xolox/vim-misc'
 Plug 'mileszs/ack.vim'
 Plug 'rking/ag.vim'
-Plug 'skwp/greplace.vim'  
+Plug 'skwp/greplace.vim' " }}}1
 ""  file search tools
 Plug 'kien/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'Valloric/MatchTagAlways'
 Plug 'szw/vim-maximizer'
 "" status line
-Plug 'Lokaltog/vim-powerline'
+Plug 'Lokaltog/vim-powerline'" {{{1
 Plug 'scrooloose/syntastic'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'brookhong/cscope.vim'
@@ -61,7 +61,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-"nerdtree
+"nerdtree }}}1
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -69,9 +69,9 @@ Plug 'jistr/vim-nerdtree-tabs'
 " Color Schemes
 "--------------
 "Plug 'altercation/vim-colors-solarized'  ;;需要时候再安装
-Plug 'https://github.com/roosta/vim-srcery'
+Plug 'https://github.com/roosta/vim-srcery'" {{{1
 Plug 'mhinz/vim-startify'
-
+" }}}1
 
 
 "marker
@@ -84,6 +84,9 @@ Plug 'nvie/vim-togglemouse'
 Plug 'terryma/vim-expand-region'
 Plug 'dimasg/vim-mark'
 Plug 'dbmrq/vim-chalk'
+"Plug 'dbmrq/vim-redacted'
+"show repeated words,r
+Plug 'dbmrq/vim-ditto'  
 ""support csv
 
 "strength the NerdTree, multiTags with one NerdTree

@@ -27,7 +27,10 @@ nnoremap <space>/ :Ag
 
 ```
 
+但是ag也不见得特别准，有时候还是得在cmd窗口下查找，才最靠谱(因为有可能受限于你的vimrc配置)。
+
 我居然忘了z/ 特别有用(当然/也是可以有作用
+
 
 ``` vim
 
@@ -854,6 +857,7 @@ vip:EasyAlign 2/--->/ 还可以添加第二个，第三个位置  以及左对�
 
 ```
 
+
 usage:
 
 ```
@@ -862,6 +866,57 @@ usage:
 :Greplace
 
 ```
+25. 更正一个chalk zf bug细节
+
+在[dbmrq/chalk][43]不能跟上注释，否则有问题！
+
+``` vim
+vmap zf <Plug>Chalk
+nmap zf <Plug>Chalk
+nmap zF <Plug>ChalkRange
+
+nmap Zf <Plug>SingleChalk
+                             " or specified count
+nmap ZF <Plug>SingleChalkUp
+                             " or specified count
+
+nmap =z <Plug>ChalkUp
+nmap -z <Plug>ChalkDown
+vmap =z <Plug>ChalkUp
+vmap -z <Plug>ChalkDown
+
+
+
+
+```
+
+另外该作者还写了一个[dbmrq/ditto][44]用于找出当前文件中重复的word(当打开md wiki org文件等自动进入dittoon模式)
+
+``` vim
+au FileType markdown,wiki,org,text,tex DittoOn  " Turn on Ditto's autocmds
+nmap <leader>dt <Plug>ToggleDitto
+
+" If you don't want the autocmds, you can also use an operator to check
+" specific parts of your text:
+" vmap <leader>d <Plug>Ditto	       " Call Ditto on visual selection
+" nmap <leader>d <Plug>Ditto	       " Call Ditto on operator movement
+
+nmap =d <Plug>DittoNext
+nmap -d <Plug>DittoPrev
+nmap +d <Plug>DittoGood
+nmap _d <Plug>DittoBad
+nmap ]d <Plug>DittoMore
+nmap [d <Plug>DittoLess
+
+
+
+```
+
+这边之所以不用官网提供的`,di`快捷键 是因为该快捷键被[Draw-It][45]占用了
+
+很方便的一个小工具，通过上下左右键画图。
+
+
 <hr/>
 <hr/>
 <hr/>
@@ -965,3 +1020,6 @@ nnoremap gd<LocalLeader> :call setline(line('.'),substitute(getline('.'),'\\','\
 [40]:https://github.com/haya14busa/incsearch.vim 
 [41]:https://github.com/haya14busa/incsearch-easymotion.vim 
 [42]:https://github.com/skwp/greplace.vim 
+[43]:https://github.com/dbmrq/vim-chalk 
+[44]:https://github.com/dbmrq/vim-ditto 
+[45]:https://github.com/vim-scripts/DrawIt 
