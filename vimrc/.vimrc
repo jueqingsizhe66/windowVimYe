@@ -445,7 +445,9 @@ nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>"
 nmap <F2> :CtrlPMRUFiles<cr>
 nmap <F1> :CtrlPBuffer<cr>
 
-nmap <F4> :MaximizerToggle<cr>
+nmap <F3> :MaximizerToggle<cr>
+"nmap <F4> :MaximizerToggle<cr>
+map <F4> :call ToggleSketch()<cr>
 "szw/vim-maximizer
 "最大化当前窗口\返回之前状态切换，在多个split窗口的非常有用
 "szw/vim-maximizer
@@ -926,7 +928,6 @@ map <leader>tp :tabprev<cr>
 map <leader>te :tabedit<cr>
 map <leader>td :tabclose<cr>
 map <leader>tm :tabm<cr>
-map <F3> :call ToggleSketch()<cr>
 
 
 " normal模式下切换到确切的tab
