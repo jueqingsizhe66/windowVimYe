@@ -27,7 +27,7 @@ Plug 'tomtom/tlib_vim'
 "Plug 'edsono/vim-matchit'
 Plug 'jwhitley/vim-matchit'
 Plug 'Lokaltog/vim-easymotion'
-
+Plug 'justinmk/vim-sneak'
 "--------------
 " Fast editing
 "--------------
@@ -84,9 +84,10 @@ Plug 'nvie/vim-togglemouse'
 Plug 'terryma/vim-expand-region'
 Plug 'dimasg/vim-mark'
 Plug 'dbmrq/vim-chalk'
+Plug 'machakann/vim-highlightedyank'
 "Plug 'dbmrq/vim-redacted'
 "show repeated words,r
-Plug 'dbmrq/vim-ditto'  
+"Plug 'dbmrq/vim-ditto'   ;; 感觉速度变慢 于是删掉
 ""support csv
 
 "strength the NerdTree, multiTags with one NerdTree

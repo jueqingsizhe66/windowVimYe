@@ -1445,19 +1445,35 @@ vmap <leader>co <Plug>Redact!
 "" ditto
 " Use autocmds to check your text automatically and keep the highlighting
 " up to date (easier):
-au FileType markdown,wiki,org,text,tex DittoOn  " Turn on Ditto's autocmds
-nmap <leader>dt <Plug>ToggleDitto
+" au FileType markdown,wiki,org,text,tex DittoOn  " Turn on Ditto's autocmds
+" nmap <leader>dt <Plug>ToggleDitto
+"
+" " If you don't want the autocmds, you can also use an operator to check
+" " specific parts of your text:
+" " vmap <leader>d <Plug>Ditto	       " Call Ditto on visual selection
+" " nmap <leader>d <Plug>Ditto	       " Call Ditto on operator movement
+"
+" nmap =d <Plug>DittoNext
+" nmap -d <Plug>DittoPrev
+" nmap +d <Plug>DittoGood
+" nmap _d <Plug>DittoBad
+" nmap ]d <Plug>DittoMore
+" nmap [d <Plug>DittoLess
+"  
+"
+"  Vim -sneak
 
-" If you don't want the autocmds, you can also use an operator to check
-" specific parts of your text:
-" vmap <leader>d <Plug>Ditto	       " Call Ditto on visual selection
-" nmap <leader>d <Plug>Ditto	       " Call Ditto on operator movement
+" 让s跳转到下一个
+let g:sneak#s_next = 1
+let g:sneak#label =1
 
-nmap =d <Plug>DittoNext
-nmap -d <Plug>DittoPrev
-nmap +d <Plug>DittoGood
-nmap _d <Plug>DittoBad
-nmap ]d <Plug>DittoMore
-nmap [d <Plug>DittoLess
+"" vim-highlightedyank
+if !exists('##TextYankPost')
+  map y <Plug>(highlightedyank)
+endif
+"" 也可以指定时间
+" let g:highlightedyank_highlight_duration = 1000   毫秒 
+let g:highlightedyank_highlight_duration = -1
+
 
 :cd ~/.vim
