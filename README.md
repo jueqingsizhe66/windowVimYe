@@ -978,9 +978,9 @@ sketch的功能更加艺术些 , 有个很magic的功能，鼠标点击一个字
 DrawIt(通过`<LocalLeader>di`激活  `<LocalLeader>ds`关闭）通常是使用键盘上下左右进行控制。
 DarwIt的功能更加传统些。
 
-### 26. vim-sneak
+### 27. vim-sneak
 
-[vim-sneak][49] 双字符查找器，比f、t更快更准(Jump to any location specified by two characters).
+[vim-sneak][49] 双字符查找器，比f,t更快更准(Jump to any location specified by two characters).
 
 ``` vim
 " 让s跳转到下一个
@@ -988,7 +988,7 @@ let g:sneak#s_next = 1
 let g:sneak#label =1
 ```
 
-### 27. vim-hightlighyank
+### 28. vim-hightlighyank
 
 [vim-hightlighyank][50]  make the yanked region apprent!
 
