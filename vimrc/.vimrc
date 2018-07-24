@@ -1170,7 +1170,7 @@ let g:startify_list_order = [
         \ 'commands',
         \ ]
 
-let g:startify_bookmarks = [ {'c': 'C:/Program Files (x86)/Vim/.vimrc'}, {'m': '~/.vim/myPlugManage.vim'}, {'r': '~/.vim/README.md'}, {'v': 'C:/Users/yzl/Desktop/javaImprove/codeReview/review.wiki'}, 'https://github.com/kana/vim-textobj-user/wiki', {'g': 'C:/Users/yzl/Desktop/gunsDevelop/notes/gunsNotes.wiki'}, {'o': 'C:/Users/yzl/Desktop/gunsDevelop/notes/roses.wiki'}, {'w': 'G:/writing/dynamic.wiki'},{'a': 'C:/Users/yzl/Desktop/javaImprove/architect-awesome/README.md.wiki'}, {'t': 'K:/IntellijHome/t-io/README.md '}, {'j': 'K:/IntellijHome/j-im/README.md '}]
+let g:startify_bookmarks = [ {'c': 'C:/Program Files (x86)/Vim/.vimrc'}, {'m': '~/.vim/myPlugManage.vim'}, {'r': '~/.vim/README.md'}, {'v': 'C:/Users/yzl/AppData/Roaming/.emacs.d/GTD/Java/codeReview/review.wiki'}, 'https://github.com/kana/vim-textobj-user/wiki', {'g': 'C:/Users/yzl/AppData/Roaming/.emacs.d/GTD/Java/notes/gunsNotes.wiki'}, {'o': 'C:/Users/yzl/AppData/Roaming/.emacs.d/GTD/Java/notes/roses.wiki'}, {'w': 'C:/Users/yzl/AppData/Roaming/.emacs.d/GTD/writing/dynamic.wiki'},{'a': 'C:/Users/yzl/AppData/Roaming/.emacs.d/GTD/Java/architect-awesome/README.md.wiki'}, {'t': 'K:/IntellijHome/t-io/README.md '}, {'j': 'K:/IntellijHome/j-im/README.md '}]
 let g:startify_commands = [
     \ ':help reference',
     \ ['Vim Reference', 'h ref'],
