@@ -376,6 +376,8 @@ il                      A single list item.
 四、Ctrl-Enter 生成垂直的new wiki， shift+enter水平的new wiki（在list的item模式 shift+enter切换item和文本模式
 直接Enter不产生新的界面，当前窗口编辑新wiki
 
+的确有用! 2018-08-23 
+
 五、内部链接
 
 
@@ -610,6 +612,7 @@ for i in `ls `; do cp ace-security/.ctags $i/.ctags ;done;
 
     然后又定制了speeddate插件，使用`Ctrl+A` 表示增加当前日期， 使用`Ctrl+X` 表示减少当前日期
 
+插入日期的时候相当于产生了对应的日期wiki！这样方便写wiki!
 11. 编译perl单文件
 ```
 Set makeprg=perl
