@@ -1170,7 +1170,7 @@ let g:startify_list_order = [
         \ 'commands',
         \ ]
 
-let g:startify_bookmarks = [ {'c': 'C:/Program Files (x86)/Vim/.vimrc'}, {'m': '~/.vim/myPlugManage.vim'}, {'r': '~/.vim/README.md'}, {'v': 'C:/Users/yzl/AppData/Roaming/.emacs.d/GTD/Java/codeReview/review.wiki'}, 'https://github.com/kana/vim-textobj-user/wiki', {'g': 'C:/Users/yzl/AppData/Roaming/.emacs.d/GTD/Java/notes/gunsNotes.wiki'}, {'o': 'C:/Users/yzl/AppData/Roaming/.emacs.d/GTD/Java/notes/roses.wiki'}, {'w': 'C:/Users/yzl/AppData/Roaming/.emacs.d/GTD/writing/dynamic.wiki'},{'a': 'C:/Users/yzl/AppData/Roaming/.emacs.d/GTD/Java/architect-awesome/README.md.wiki'}, {'t': 'K:/IntellijHome/t-io/README.md '}, {'j': 'K:/IntellijHome/j-im/README.md '}]
+let g:startify_bookmarks = [ {'c': 'C:/Program Files (x86)/Vim/.vimrc'}, {'m': '~/.vim/myPlugManage.vim'}, {'r': '~/.vim/README.md'}, {'v': 'C:/Users/yzl/AppData/Roaming/.emacs.d/GTD/Java/codeReview/review.wiki'}, 'https://github.com/kana/vim-textobj-user/wiki', {'g': 'C:/Users/yzl/AppData/Roaming/.emacs.d/GTD/Java/notes/gunsNotes.wiki'}, {'o': 'C:/Users/yzl/AppData/Roaming/.emacs.d/GTD/Java/notes/roses.wiki'}, {'w': 'C:/Users/yzl/AppData/Roaming/.emacs.d/GTD/writing/dynamic.wiki'},{'s': 'C:/Users/yzl/AppData/Roaming/.emacs.d/GTD/writing/常用搜索链接.wiki'},{'a': 'C:/Users/yzl/AppData/Roaming/.emacs.d/GTD/Java/architect-awesome/README.md.wiki'}, {'t': 'K:/IntellijHome/t-io/README.md '}, {'j': 'K:/IntellijHome/j-im/README.md '}, {'g': 'https://github.com/CyC2018/CS-Notes'}]
 let g:startify_commands = [
     \ ':help reference',
     \ ['Vim Reference', 'h ref'],
@@ -1441,7 +1441,11 @@ vmap <leader>cr <Plug>Redact
 nmap <leader>co <Plug>Redact!
 vmap <leader>co <Plug>Redact!
 
-
+"" vim-after-object
+"https://github.com/junegunn/vim-after-object 
+autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
+" ]= and [= instead of a= and aa=
+autocmd VimEnter * call after_object#enable([']', '['], '=', ':','-','#',' ')
 "" ditto
 " Use autocmds to check your text automatically and keep the highlighting
 " up to date (easier):

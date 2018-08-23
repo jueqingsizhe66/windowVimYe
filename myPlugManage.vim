@@ -144,6 +144,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/gv.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'junegunn/vim-after-object'
 "Plug 'junegunn/vim-github-dashboard'
 " Multiple commands
 "Plug 'junegunn/vim-github-dashboard'

@@ -998,6 +998,27 @@ let g:highlightedyank_highlight_duration = -1
 
 ```
 
+### 29. vim-after-object
+
+[vim-after-object][51] 可以选择某一个特征字符之后到结尾整行的信息。
+
+
+1. 定义`va`几个特征字符
+``` vim
+autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
+
+```
+
+2. 定义`va`的替换工具`v]`
+
+``` vim
+
+autocmd VimEnter * call after_object#enable([']','['], '=', ':', '-', '#', ' ')
+```
+
+此时`va=`等价于`v]=`
+
+
 <hr/>
 
 <hr/>
@@ -1111,3 +1132,4 @@ nnoremap gd<LocalLeader> :call setline(line('.'),substitute(getline('.'),'\\','\
 [48]:https://github.com/vim-scripts/DrawIt 
 [49]:https://github.com/justinmk/vim-sneak 
 [50]:https://github.com/machakann/vim-highlightedyank 
+[51]:https://github.com/junegunn/vim-after-object 
