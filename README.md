@@ -8,6 +8,8 @@
 
 如果您依然想用，那么只好忽略警告,然后`Plug Install`一下即可
 
+## 安装需求
+
 ```
 记得更改ag.exe,perl.exe,es.exe,git.exe 哈，在.vimrc的第943行，搜索一下即可
 并且把.vim目录下的ag.exe添加到path路径下，这样你就可以愉快的`,a`,命令行显示`:Ack everything`
@@ -70,7 +72,7 @@ In Windows, you should not use file_rec/async source. It is too slow and not eas
 
 ## III. :Gdiff : fugitive Gdiff eye your difference of files
 
-gv.vim][21] 不错的快捷的版本显示工具（需要[fugitive][22]的支持！)
+[gv.vim][21] 不错的快捷的版本显示工具（需要[fugitive][22]的支持！)
 
 ![gv][23]
 
@@ -201,18 +203,29 @@ ag 'hx' /www/t086.com
 
 ## VI. 当前vim工作流程
 
+
+
+### 文件外操作:
+
 1. 打开文件，编写(涉及到git提交问题，一般选择emacs的magit形式，进行工作，就比如现在我正在emacs编写)
-2. 需要记录知识，概念，打开calendar(我已经在.vimrc)配置好，所以可以直接使用`,ca`打开calendar，调到当前日期写日记,当然直接打开当前日子`,wt`
+2. 使用`F2` 打开ctrlp最经常打开的文件列表，使用Ctrl-P打开你当前目录下的文件)，或者使用`,f`打开当前文件夹列表【unite】(最常用，也方便)，
+    事先会在NerdTree找到Bookmark(A可以toggle最大化nerdtree窗口，`:bookmark`添加当前项目到nerdtree bookmark系列下面!
+    注意只能在NerdTree窗口下才能执行`:bookmark`命令。
+    然后切换到那个目录下，如果想要提交到github也方便使用`:shell`或者使用`:GitStatus`进行事先查看
+3. 使用`:Startify`来打开文件管理界面,切换到常用文件列表
+4. 需要记录知识，概念，打开calendar(我已经在.vimrc)配置好，所以可以直接使用`,ca`打开calendar，调到当前日期写日记,当然直接打开当前日子`,wt`
 然后有可能使用`xdate`产生日期，很有意思的是enter一下即可产生链接(vimwiki做得不错），然后还可以使用backspace回到`,wi` diary总管理界面，可不舒爽
-的一个编辑过程，两个键方便写来读去，很是方便 ,进一步参考[what vim teatches you][11]
-3. 双空格进行搜索【unite】，`,a`进行查找【unite+ag】，`,q`查找光标下单词【unite+ag】，使用`F2` 打开ctrlp最经常打开的文件列表，使用Ctrl-P打开你当前目录下的文件)，
-或者使用`,f`打开当前文件夹列表【unite】(最常用，也方便)，事先会在NerdTree找到Bookmark(A可以toggle最大化nerdtree窗口，`:bookmark`添加当前项目到nerdtree bookmark系列下面!注意只能在NerdTree窗口下才能执行`:bookmark`命令。
-然后切换到那个目录下，如果想要提交到github也方便使用`:shell`或者使用`:GitStatus`进行事先查看
-4. 会使用vim-text-obj,然后使用vim-expand-region的+/-来增大选择区域。
-5. 每天都在学习`:h vimwiki`, `:h vim-easy-object`,`:h nerdtree` etc
-6. 当觉得当前窗口过小`:res 10` 增加到10行（对于多窗口模式下有用）
-7. 在观看代码时候，习惯性的打开TagBar, 事先会进行`ctags -R` 然后`ag -l>cscope.files` ,最后在`set path=f:/cygwin/bin  ; cscope -bq`生成cscope.out
-8. 
+的一个编辑过程，两个键方便写来读去，很是方便 ,进一步参考[what vim teatches you][11]. 在编辑vimwiki文件时候，list项目时候使用`glX` 添加checkbox，
+使用`Ctrl-Shift-@`toggle checkbox选项!
+5. 双空格进行搜索【unite,建议不用】
+6. 有时候经常需要拷贝路径+文件名，使用`<leader>cp`搞定问题，或者拷贝目录`<leader>cd`太方便了，特别是编写脚本 2018-08-23 的确有用!赞！！！TotalCommander也有类似的功能!
+
+### 文件内操作:
+1. 使用<leader>l 打开文件内搜索
+2. 在观看代码时候，习惯性的打开TagBar, 事先会进行`ctags -R` 然后`ag -l>cscope.files` ,最后在`set path=f:/cygwin/bin  ; cscope -bq`生成cscope.out; `,a`进行查找【unite+ag】，`,q`查找光标下单词【unite+ag】，
+3. 使用vim-text-obj,然后使用vim-expand-region的+/-来增大选择区域, 最近安装了[vim-after-object][51]也是挺好用的
+4. 时常学习`:h vimwiki`, `:h vim-easy-object`,`:h nerdtree` etc
+5. 当觉得当前窗口过小`:res 10` 增加到10行（对于多窗口模式下有用）
 
 
 ```
@@ -587,7 +600,7 @@ for i in `ls `; do cp ace-security/.ctags $i/.ctags ;done;
 
 3. `V` 大写的V，可视化当前行，对于演示的时候特别有效，表示我现在只是针对当前行进行操作，特别具有目的性。
 
-4. `,cp  ,cf ,cd`  复制当前文件的全路径， 当前文件文件名，当前文件的目录
+4. `,cp  ,cf ,cd`  复制当前文件的全路径， 当前文件文件名，当前文件的目录, 2018-09-06 特别有用，经常需要基于当前文件获取当前文件夹名字
 
 5. `m[A-Z]` 阔文件间进行标记，对于大型项目有用，使用`单反引号[A-Z]` 进行跳转, 对于`m[a-z]`只支持文件内跳转。
 
@@ -641,6 +654,10 @@ option may be relative or absolute.
 
 ### 13. vimwiki tab技巧
 
+```
+Place your cursor on Tasks and press Enter to create a link. Once pressed, Tasks will become [[Tasks]] -- a Vimwiki link.
+Press Enter again to open it. Edit the file, save it, and then press Backspace to jump back to your index.
+```
 要记得vimfiles的概念
 
 
@@ -743,7 +760,7 @@ CtrlP和ag也可以结合起来使用，[ctrlP-ag][38]
 
 ```
 
-为了提高ctrlp搜索的命中率，于是做了一些配置(文件名的配置的确是有用的！不然如果按照全路径有很多不符合逻辑的出现)
+为了提高ctrlp搜索的命中率(洗清，数据清理, 正则匹配)，于是做了一些配置(文件名的配置的确是有用的！不然如果按照全路径有很多不符合逻辑的出现)
 
 ```
 "默认使用全路径搜索，置1后按文件名搜索，准确率会有所提高，可以用<C-d>进行切换
@@ -1034,28 +1051,6 @@ autocmd VimEnter * call after_object#enable([']','['], '=', ':', '-', '#', ' ')
 <hr/>
 
 
-
-
-
-
-
-Maple's Vim config
-==================
-
-* [Vim Introduction and Tutorial](http://blog.interlinked.org/tutorials/vim_tutorial.html)
-* [Vim plugins I use](http://mirnazim.org/writings/vim-plugins-i-use/)
-
-will be good for you.
-
-#### Most of the time we are writing code so we need:
-## Code Completions
-
-Such as completions for variable names and function names(neocomplcache), expanding snippets(snipMate), auto closing brackets/brace/quote(delimitMate) and fast expand expressions to HTML(ZenCoding).
-
-* [neocomplcache](http://github.com/Shougo/neocomplcache) - Ultimate auto completion system for Vim.
-* [snipMate](https://github.com/garbas/vim-snipmate) - Plugin for using TextMate-style snippets in Vim.
-* [supertab](http://github.com/ervandew/supertab) - Perform all your vim insert mode completions with Tab.
-* [delimitMate](http://github.com/Raimondi/delimitMate) - Provides auto-balancing and some expansions for parens, quotes, etc.
 
 
 ## Fast navigation

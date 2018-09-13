@@ -1022,7 +1022,7 @@ let g:nb_categories = ['CHECK', 'CLASS', 'CODE', 'CONDITION', 'DEBUG', 'DEFINE',
 
 
 "" for wiki
-let g:vimwiki_list = [{ 'auto_toc': 1}]
+let g:vimwiki_list = [{ 'path': '~/.vim/vimwiki/', 'path_html': '~/.vim/vimwiki_html','auto_toc': 1}]
 nmap <C-@> <Plug>VimwikiToggleListItem
 vmap <C-@> <Plug>VimwikiToggleListItem
 let g:vimwiki_folding='list'
@@ -1250,9 +1250,9 @@ function! CurrentLineI()
 endfunction
 
 "" for vim-copy-filename
-nmap <leader>cp :CopyRelativePath<CR>
+nmap <leader>cP :CopyRelativePath<CR>
 nmap <leader>cl :CopyRelativePathAndLine<CR>
-nmap <leader>cP :CopyAbsolutePath<CR>
+nmap <leader>cp :CopyAbsolutePath<CR>
 nmap <leader>cf :CopyFileName<CR>
 nmap <leader>cd :CopyDirectoryPath<CR>
 
@@ -1480,4 +1480,5 @@ endif
 let g:highlightedyank_highlight_duration = -1
 
 
-:cd ~/.vim
+
+"":cd ~/.vim
