@@ -1,0 +1,26 @@
+
+     ┌─────┐                           ┌───┐
+     │Alice│                           │Bob│
+     └──┬──┘                           └─┬─┘
+        │    Authentication Request      │
+        │───────────────────────────────>│
+        │                                │
+        │    Authentication Response     │
+        │<─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─│
+        │                                │
+        │Another authentication Request  │
+        │───────────────────────────────>│
+        │                                │
+        │another authentication Response │
+        │<─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─│
+     ┌──┴──┐                           ┌─┴─┐
+     │Alice│                           │Bob│
+     └─────┘                           └───┘
+
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: another authentication Response
+@enduml

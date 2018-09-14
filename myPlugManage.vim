@@ -145,9 +145,13 @@ Plug 'junegunn/gv.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/vim-after-object'
+Plug 'amix/vim-zenroom2'
 "Plug 'junegunn/vim-github-dashboard'
 " Multiple commands
 "Plug 'junegunn/vim-github-dashboard'
+"plantuml
+Plug 'scrooloose/vim-slumlord'
+Plug 'aklt/plantuml-syntax'
 
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-sensible'

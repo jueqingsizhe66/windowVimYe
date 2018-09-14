@@ -11,8 +11,10 @@
 ## 安装需求
 
 ```
-记得更改ag.exe,perl.exe,es.exe,git.exe 哈，在.vimrc的第943行，搜索一下即可
+1. 记得更改ag.exe,perl.exe,es.exe,git.exe 哈，在.vimrc的第943行，搜索一下即可
 并且把.vim目录下的ag.exe添加到path路径下，这样你就可以愉快的`,a`,命令行显示`:Ack everything`
+
+2. 安装ctags(ubuntu: apt-get install exuberant-ctags)和cscope(apt-get install cscope)
 ```
 
 fzf和ag其实都是类似的东西。
@@ -1051,6 +1053,29 @@ autocmd VimEnter * call after_object#enable([']','['], '=', ':', '-', '#', ' ')
 <hr/>
 
 
+### 30. UML 时序图
+
+[plantUML][53] 是一款方便的绘制java时序图，用例图等面向对象相关过程图的工具。
+
+![plantuml-image][52]
+
+
+例子
+
+``` org
+@startuml
+/' give me wood'/
+
+-> Eyes : Income
+Brain -> Brain : UML spotted!
+Brain -> Wang : UML alert!
+loop 1000 times
+    Wang -> Heart : request blood
+    Wang <--  Heart : Blood!
+@enduml
+
+```
+但是在vim中还是不能支持太多!
 
 
 ## Fast navigation
@@ -1131,3 +1156,5 @@ nnoremap gd<LocalLeader> :call setline(line('.'),substitute(getline('.'),'\\','\
 [49]:https://github.com/justinmk/vim-sneak 
 [50]:https://github.com/machakann/vim-highlightedyank 
 [51]:https://github.com/junegunn/vim-after-object 
+[52]:https://github.com/jueqingsizhe66/windowVimYe/blob/develop/img/plantUML.png 
+[53]:http://plantuml.com/ 

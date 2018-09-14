@@ -1,0 +1,122 @@
+
+     ┌───┐                                            ┌─────┐
+     │Bob│                                            │Alice│
+     └─┬─┘                                            └──┬──┘
+       │                                                 │
+       │────────────────────────────────────────────────>│
+       │                                                 │
+       │                                                 │
+       │────────────────────────────────────────────────>│
+       │                                                 │
+       │                                                 │
+       │────────────────────────────────────────────────>│
+       │                                                 │
+       │                                                 │
+       │────────────────────────────────────────────────>│
+       │                                                 │
+       │                                                 │
+       │<────────────────────────────────────────────────│
+       │                                                 │
+       │                                                 │
+       │<─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ │
+       │                                                 │
+       │                                                 │
+       │────────────────────────────────────────────────>│
+       │                                                 │
+       │                                                 │
+       │<─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ │
+       │                                                 │
+       │                                                 │
+       │<───────────────────────────────────────────────>│
+       │                                                 │
+       │                                                 │
+       │<───────────────────────────────────────────────>│
+       │                                                 │
+       │                     hello                       │
+       │────────────────────────────────────────────────>│
+       │                                                 │
+       │                       ok                        │
+       │<─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ │
+       │                                                 │
+       │            1 Authentication Request             │
+       │────────────────────────────────────────────────>│
+       │                                                 │
+       │           2 Authentication Response             │
+       │<────────────────────────────────────────────────│
+       │                                                 │
+       │       15 Another authentication Request         │
+       │────────────────────────────────────────────────>│
+       │                                                 │
+       │       16 Another authentication Response        │
+       │<────────────────────────────────────────────────│
+       │                                                 │
+       │     40 Yet another authentication Request       │
+       │────────────────────────────────────────────────>│
+       │                                                 │
+       │     50 Yet another authentication Response      │
+       │<────────────────────────────────────────────────│
+       │                                                 │
+       │          [001] Authentication Request           │
+       │────────────────────────────────────────────────>│
+       │                                                 │
+       │         [002] Authentication Response           │
+       │<────────────────────────────────────────────────│
+       │                                                 │
+       │      (15) Another authentication Request        │
+       │────────────────────────────────────────────────>│
+       │                                                 │
+       │      (16) Another authentication Response       │
+       │<────────────────────────────────────────────────│
+       │                                                 │
+       │Message 40   Yet another authentication Request  │
+       │────────────────────────────────────────────────>│
+       │                                                 │
+       │Message 50   Yet another authentication Response │
+       │<────────────────────────────────────────────────│
+     ┌─┴─┐                                            ┌──┴──┐
+     │Bob│                                            │Alice│
+     └───┘                                            └─────┘
+
+@startuml
+Bob ->x Alice
+Bob -> Alice
+Bob ->> Alice
+Bob -\ Alice
+Bob \\- Alice
+Bob //-- Alice
+
+Bob ->o Alice
+Bob o\\-- Alice
+
+Bob <-> Alice
+Bob <->o Alice
+Bob -[#red]> Alice : hello
+Alice -[#0000FF]->Bob : ok
+
+
+autonumber
+Bob -> Alice : Authentication Request
+Bob <- Alice : Authentication Response
+
+
+autonumber 15
+Bob -> Alice : Another authentication Request
+Bob <- Alice : Another authentication Response
+
+autonumber 40 10
+Bob -> Alice : Yet another authentication Request
+Bob <- Alice : Yet another authentication Response
+
+
+autonumber "<b>[000]"
+Bob -> Alice : Authentication Request
+Bob <- Alice : Authentication Response
+
+autonumber 15 "<b>(<u>##</u>)"
+Bob -> Alice : Another authentication Request
+Bob <- Alice : Another authentication Response
+
+autonumber 40 10 "<font color=red><b>Message 0  "
+Bob -> Alice : Yet another authentication Request
+Bob <- Alice : Yet another authentication Response
+@enduml
