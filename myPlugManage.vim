@@ -11,7 +11,9 @@ Plug 'ervandew/supertab'
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " try anoother
 " Plug 'scrooloose/snipmate-snippets'
-Plug 'garbas/vim-snipmate'
+" garbas is for vimL
+Plug 'davidhalter/jedi-vim'
+"Plug 'garbas/vim-snipmate'  
 Plug 'honza/vim-snippets'
 """""""""""""""""""""""""""""""""""""""""""""""""""
 "python

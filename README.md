@@ -1034,11 +1034,21 @@ autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 2. 定义`va`的替换工具`v]`
 
 ``` vim
-
 autocmd VimEnter * call after_object#enable([']','['], '=', ':', '-', '#', ' ')
 ```
 
 此时`va=`等价于`v]=`
+
+
+### 30. vim-multiple-cursors
+
+最常用:
+
+1. `<C-n>`表示向下匹配添加cursor
+2. `<C-p>`表上向上匹配添加cursor
+3. `vip<C-n>i""`代表在选取区域内添加cursors
+4. `<Alt-n>`代表匹配所有 添加cursor
+
 
 
 <hr/>
